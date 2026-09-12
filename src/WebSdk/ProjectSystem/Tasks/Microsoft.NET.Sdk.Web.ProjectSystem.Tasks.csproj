@@ -1,11 +1,15 @@
 ﻿<Project>
   <PropertyGroup>
-    <ProjectSystemRoot Condition="'$(ProjectSystemRoot)' == ''">$(RepoRoot)\src\WebSdk\ProjectSystem\</ProjectSystemRoot>
     <PackageId>Microsoft.NET.Sdk.Web.ProjectSystem</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tools</OutDirName>
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <ProjectSystemRoot Condition="'$(ProjectSystemRoot)' == ''">$(RepoRoot)\src\WebSdk\ProjectSystem\</ProjectSystemRoot>
+  </PropertyGroup>
   <Import Project="$(RepoRoot)\src\WebSdk\Package.props" />
 
   <PropertyGroup>

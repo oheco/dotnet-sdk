@@ -74,12 +74,20 @@
       PackageVersion="$(MicrosoftNETCoreAppRefPackageVersion)"
       RelativeLayoutPath="packs/%(PackageName)/%(PackageVersion)" />
 
-    <!-- Keep the managed reference pack: restore probes transitive framework
-         references even for console projects. This does not bundle its runtime. -->
+    <!-- Keep the managed reference pack even when excluding the runtime:
+         restore probes transitive framework references for console projects. -->
     <BundledLayoutPackage Include="Microsoft.AspNetCore.App.Ref"
       PackageName="Microsoft.AspNetCore.App.Ref"
       PackageVersion="$(MicrosoftAspNetCoreAppRefPackageVersion)"
       RelativeLayoutPath="packs/%(PackageName)/%(PackageVersion)" />
+
+    <!-- .NET 10 Web SDK restores these source-built browser resources. -->
+    <BundledLayoutPackage Include="Microsoft.AspNetCore.App.Internal.Assets"
+      Condition="'$(OSName)' == 'openharmony'"
+      PackageName="Microsoft.AspNetCore.App.Internal.Assets"
+      PackageVersion="$(MicrosoftAspNetCoreAppRuntimePackageVersion)"
+      RelativeLayoutPath="library-packs"
+      SkipExtractPackage="true" />
 
     <BundledLayoutPackage Include="Microsoft.NETCore.App.Host.$(SharedFrameworkRid)"
       PackageName="Microsoft.NETCore.App.Host.$(SharedFrameworkRid)"

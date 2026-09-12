@@ -1,13 +1,17 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <BlazorWasmSdkRoot>$(RepoRoot)\src\BlazorWasmSdk\</BlazorWasmSdkRoot>
     <PackageId>Microsoft.NET.Sdk.BlazorWebAssembly</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tools</OutDirName>
     <DefineConstants>$(DefineConstants);WASM_TASKS</DefineConstants>
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <BlazorWasmSdkRoot>$(RepoRoot)\src\BlazorWasmSdk\</BlazorWasmSdkRoot>
+  </PropertyGroup>
 
   <PropertyGroup>
     <OutputType>Library</OutputType>

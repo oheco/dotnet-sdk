@@ -1,12 +1,16 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <WorkerRoot Condition="'$(WorkerRoot)' == ''">$(RepoRoot)\src\WebSdk\Worker\</WorkerRoot>
     <PackageId>Microsoft.NET.Sdk.Worker</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tools</OutDirName>
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <WorkerRoot Condition="'$(WorkerRoot)' == ''">$(RepoRoot)\src\WebSdk\Worker\</WorkerRoot>
+  </PropertyGroup>
   <Import Project="$(RepoRoot)\src\WebSdk\Package.props" />
 
   <PropertyGroup>

@@ -90,6 +90,22 @@
     <Using Include="System.Xml.Linq" />
   </ItemGroup>
 
+  <!-- The OpenHarmony distribution is built with the matching ASP.NET Core fork.
+       Internal tool versions include the fixed release build stamp. -->
+  <PropertyGroup Condition="$(TargetRid.StartsWith('openharmony-'))">
+    <MicrosoftAspNetCoreAppRefPackageVersion>10.0.12</MicrosoftAspNetCoreAppRefPackageVersion>
+    <MicrosoftDotNetWebItemTemplates100PackageVersion>10.0.12</MicrosoftDotNetWebItemTemplates100PackageVersion>
+    <MicrosoftDotNetWebProjectTemplates100PackageVersion>10.0.12</MicrosoftDotNetWebProjectTemplates100PackageVersion>
+    <MicrosoftAspNetCoreAppRefInternalPackageVersion>10.0.12-servicing.26462.1</MicrosoftAspNetCoreAppRefInternalPackageVersion>
+    <dotnetdevcertsPackageVersion>10.0.12-servicing.26462.1</dotnetdevcertsPackageVersion>
+    <dotnetuserjwtsPackageVersion>10.0.12-servicing.26462.1</dotnetuserjwtsPackageVersion>
+    <dotnetusersecretsPackageVersion>10.0.12-servicing.26462.1</dotnetusersecretsPackageVersion>
+    <MicrosoftAspNetCoreAnalyzersPackageVersion>10.0.12-servicing.26462.1</MicrosoftAspNetCoreAnalyzersPackageVersion>
+    <MicrosoftAspNetCoreComponentsSdkAnalyzersPackageVersion>10.0.12-servicing.26462.1</MicrosoftAspNetCoreComponentsSdkAnalyzersPackageVersion>
+    <MicrosoftAspNetCoreMvcAnalyzersPackageVersion>10.0.12-servicing.26462.1</MicrosoftAspNetCoreMvcAnalyzersPackageVersion>
+    <MicrosoftAspNetCoreMvcApiAnalyzersPackageVersion>10.0.12-servicing.26462.1</MicrosoftAspNetCoreMvcApiAnalyzersPackageVersion>
+  </PropertyGroup>
+
   <!-- These aliases need to live outside of Versions.props as VMR / source-build overwrites some of the version properties for live builds. -->
   <PropertyGroup>
     <!-- Runtime and Apphost pack versions are the same for all RIDs. We flow the x64 version above and create aliases without the winx64 here for clarity elsewhere. -->

@@ -1,7 +1,6 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <PublishRoot Condition="'$(PublishRoot)' == ''">$(RepoRoot)\src\WebSdk\Publish\</PublishRoot>
     <PackageId>Microsoft.NET.Sdk.Publish</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tools</OutDirName>
 
@@ -10,6 +9,11 @@
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <PublishRoot Condition="'$(PublishRoot)' == ''">$(RepoRoot)\src\WebSdk\Publish\</PublishRoot>
+  </PropertyGroup>
   <Import Project="$(RepoRoot)\src\WebSdk\Package.props" />
 
   <PropertyGroup>

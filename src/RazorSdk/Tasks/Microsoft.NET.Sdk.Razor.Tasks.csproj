@@ -1,7 +1,6 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <RazorSdkRoot>$(RepoRoot)\src\RazorSdk\</RazorSdkRoot>
     <PackageId>Microsoft.NET.Sdk.Razor</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tasks</OutDirName>
 
@@ -10,6 +9,11 @@
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <RazorSdkRoot>$(RepoRoot)\src\RazorSdk\</RazorSdkRoot>
+  </PropertyGroup>
 
   <PropertyGroup>
     <OutputType>Library</OutputType>

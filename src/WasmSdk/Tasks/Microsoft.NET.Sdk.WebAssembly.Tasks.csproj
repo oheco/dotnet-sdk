@@ -1,12 +1,16 @@
 ﻿<Project>
 
   <PropertyGroup>
-    <WasmSdkRoot>$(RepoRoot)\src\WasmSdk\</WasmSdkRoot>
     <PackageId>Microsoft.NET.Sdk.WebAssembly</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tools</OutDirName>
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <WasmSdkRoot>$(RepoRoot)\src\WasmSdk\</WasmSdkRoot>
+  </PropertyGroup>
   <Import Project="..\Sdk\TargetFrameworks.props" />
 
   <PropertyGroup>

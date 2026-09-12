@@ -1,7 +1,6 @@
 <Project>
 
   <PropertyGroup>
-    <StaticWebAssetsSdkRoot>$(RepoRoot)\src\StaticWebAssetsSdk\</StaticWebAssetsSdkRoot>
     <PackageId>Microsoft.NET.Sdk.StaticWebAssets</PackageId>
     <OutDirName>$(Configuration)\Sdks\$(PackageId)\tasks</OutDirName>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
@@ -11,6 +10,11 @@
   </PropertyGroup>
 
   <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+
+  <!-- RepoRoot is initialized by Sdk.props / Directory.Build.props. -->
+  <PropertyGroup>
+    <StaticWebAssetsSdkRoot>$(RepoRoot)\src\StaticWebAssetsSdk\</StaticWebAssetsSdkRoot>
+  </PropertyGroup>
 
   <PropertyGroup>
     <TargetFrameworks>$(SdkTargetFramework);net472</TargetFrameworks>

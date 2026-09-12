@@ -84,7 +84,7 @@
     <BundleRuntimePacks>true</BundleRuntimePacks>
     <BundleNativeAotCompiler>true</BundleNativeAotCompiler>
     <BundleCrossgen2>true</BundleCrossgen2>
-    <IncludeAspNetCoreRuntime>false</IncludeAspNetCoreRuntime>
+    <IncludeAspNetCoreRuntime>true</IncludeAspNetCoreRuntime>
     <IncludeWpfAndWinForms>false</IncludeWpfAndWinForms>
   </PropertyGroup>
 
