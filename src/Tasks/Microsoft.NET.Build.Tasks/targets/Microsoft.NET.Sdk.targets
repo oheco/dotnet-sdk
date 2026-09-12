@@ -1507,5 +1507,6 @@ Copyright (c) .NET Foundation. All rights reserved.
     <SupportedOSPlatformVersion>$(EffectiveTargetPlatformVersion)</SupportedOSPlatformVersion>
   </PropertyGroup>
 
+  <Import Project="$(MSBuildThisFileDirectory)Microsoft.NET.Sdk.OpenHarmony.targets" />
   <Import Project="$(AfterMicrosoftNETSdkTargets)" Condition="'$(AfterMicrosoftNETSdkTargets)' != ''"/>
 </Project>

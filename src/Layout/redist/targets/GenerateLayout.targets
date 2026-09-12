@@ -163,6 +163,8 @@
                                  $(ArtifactsBinDir)dotnet-format/$(Configuration)/$(NetCurrent)/**/*.exe;
                                  $(ArtifactsBinDir)dotnet-format/$(Configuration)/$(NetCurrent)/**/*.json;
                                  $(ArtifactsBinDir)dotnet-format/$(Configuration)/$(NetCurrent)/**/*.config" />
+      <DotnetFormatFile Remove="$(ArtifactsBinDir)dotnet-format/$(Configuration)/$(NetCurrent)/shims/**"
+                        Condition="'$(OSName)' == 'openharmony'" />
     </ItemGroup>
 
     <Copy SourceFiles="@(DotnetFormatFile)"
@@ -256,6 +258,8 @@
       <TestCliBitsToExclude Include="$(TestCliNuGetDirectory)System.Runtime.CompilerServices.Unsafe.dll" />
       <TestCliBitsToExclude Include="$(TestCliNuGetDirectory)NuGet.Frameworks.dll" />
       <TestCliBitsToExclude Include="$(TestCliNuGetDirectory)System.Text.Json.dll" />
+      <TestCliBitsToExclude Include="$(TestCliNuGetDirectory)TestHostNetFramework/**"
+                            Condition="'$(OSName)' == 'openharmony'" />
       <TestCliBits Include="$(TestCliNuGetDirectory)**/*"
                    Exclude="@(TestCliBitsToExclude)" />
     </ItemGroup>
@@ -484,10 +488,10 @@
       <WorkloadManifestFilesContent Include="%(BuiltinManifests.Identity)" />
     </ItemGroup>
 
-    <Error Text="No workload manifest content found." Condition="'@(WorkloadManifestFilesContent->Count())' == '0'" />
+    <Error Text="No workload manifest content found." Condition="'@(WorkloadManifestFilesContent->Count())' == '0' and '$(OSName)' != 'openharmony'" />
 
     <ItemGroup>
-      <WorkloadManifestFilesContent Include="samsung.net.sdk.tizen" />
+      <WorkloadManifestFilesContent Include="samsung.net.sdk.tizen" Condition="'$(OSName)' != 'openharmony'" />
     </ItemGroup>
 
     <WriteLinesToFile File="$(OutputPath)KnownWorkloadManifests.txt"

@@ -80,7 +80,7 @@
                                                                  Condition="'$(BundleRuntimePacks)' == 'true' and !$([MSBuild]::IsOSPlatform('WINDOWS'))">
     <ReplaceFilesWithSymbolicLinks Directory="$(RedistInstallerLayoutPath)/packs/Microsoft.NETCore.App.Runtime.$(SharedFrameworkRid)/$(MicrosoftNETCoreAppRuntimePackageVersion)" LinkToFilesFrom="$(RedistInstallerLayoutPath)/shared/Microsoft.NETCore.App/$(MicrosoftNETCoreAppRuntimePackageVersion)" />
     <ReplaceFilesWithSymbolicLinks Directory="$(RedistInstallerLayoutPath)/packs/Microsoft.NETCore.App.Runtime.$(SharedFrameworkRid)/$(MicrosoftNETCoreAppRuntimePackageVersion)" LinkToFilesFrom="$(RedistInstallerLayoutPath)/host/fxr/$(MicrosoftNETCoreAppRuntimePackageVersion)" />
-    <ReplaceFilesWithSymbolicLinks Directory="$(RedistInstallerLayoutPath)/packs/Microsoft.AspNetCore.App.Runtime.$(SharedFrameworkRid)/$(MicrosoftAspNetCoreAppRuntimePackageVersion)" LinkToFilesFrom="$(RedistInstallerLayoutPath)/shared/Microsoft.AspNetCore.App/$(MicrosoftAspNetCoreAppRuntimePackageVersion)" />
+    <ReplaceFilesWithSymbolicLinks Directory="$(RedistInstallerLayoutPath)/packs/Microsoft.AspNetCore.App.Runtime.$(SharedFrameworkRid)/$(MicrosoftAspNetCoreAppRuntimePackageVersion)" LinkToFilesFrom="$(RedistInstallerLayoutPath)/shared/Microsoft.AspNetCore.App/$(MicrosoftAspNetCoreAppRuntimePackageVersion)" Condition="'$(IncludeAspNetCoreRuntime)' != 'false'" />
   </Target>
 
   <!-- Anything that goes outside of the sdk/$(Version) directory. -->

@@ -1,0 +1,1051 @@
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using Microsoft.Build.Collections;
+using Microsoft.Build.Construction;
+using Microsoft.Build.Evaluation;
+using Microsoft.Build.Evaluation.Context;
+using Microsoft.Build.Eventing;
+using Microsoft.Build.Exceptions;
+using Microsoft.Build.Execution;
+using Microsoft.Build.Shared;
+
+#nullable disable
+
+namespace Microsoft.Build.Graph
+{
+    /// <summary>
+    ///     Represents a graph of evaluated projects.
+    /// </summary>
+    [DebuggerDisplay(@"{DebuggerDisplayString()}")]
+    public sealed class ProjectGraph
+    {
+        /// <summary>
+        ///     A callback used for constructing a <see cref="ProjectInstance" /> for a specific
+        ///     <see cref="ProjectGraphEntryPoint" /> instance.
+        /// </summary>
+        /// <param name="projectPath">The path to the project file to parse.</param>
+        /// <param name="globalProperties">The global properties to be used for creating the ProjectInstance.</param>
+        /// <param name="projectCollection">The <see cref="ProjectCollection" /> context for parsing.</param>
+        /// <returns>A <see cref="ProjectInstance" /> instance. This value must not be null.</returns>
+        /// <remarks>
+        ///     The default version of this delegate used by ProjectGraph simply calls the
+        ///     ProjectInstance constructor with information from the parameters. This delegate
+        ///     is provided as a hook to allow scenarios like creating a <see cref="Project" />
+        ///     instance before converting it to a ProjectInstance for use by the ProjectGraph.
+        ///     The returned ProjectInstance will be stored and provided with the ProjectGraph.
+        ///     If this callback chooses to generate an immutable ProjectInstance, e.g. by
+        ///     using <see cref="Project.CreateProjectInstance()" /> with the flag
+        ///     <see cref="ProjectInstanceSettings.Immutable" />, the resulting ProjectGraph
+        ///     nodes might not be buildable.
+        ///     To avoid corruption of the graph and subsequent builds based on the graph:
+        ///     - all callback parameters must be utilized for creating the ProjectInstance, without any mutations
+        ///     - the project instance should not be mutated in any way, its state should be a
+        ///     full fidelity representation of the project file
+        /// </remarks>
+        public delegate ProjectInstance ProjectInstanceFactoryFunc(
+            string projectPath,
+            Dictionary<string, string> globalProperties,
+            ProjectCollection projectCollection);
+
+        private readonly Lazy<IReadOnlyCollection<ProjectGraphNode>> _projectNodesTopologicallySorted;
+
+        private readonly EvaluationContext _evaluationContext = null;
+
+        private GraphBuilder.GraphEdges Edges { get; }
+
+        internal GraphBuilder.GraphEdges TestOnly_Edges => Edges;
+
+        internal SolutionFile Solution { get; }
+
+        public GraphConstructionMetrics ConstructionMetrics { get; private set; }
+
+        /// <summary>
+        /// Various metrics on graph construction.
+        /// </summary>
+        public readonly struct GraphConstructionMetrics
+        {
+            public GraphConstructionMetrics(TimeSpan constructionTime, int nodeCount, int edgeCount)
+            {
+                ConstructionTime = constructionTime;
+                NodeCount = nodeCount;
+                EdgeCount = edgeCount;
+            }
+
+            public TimeSpan ConstructionTime { get; }
+            public int NodeCount { get; }
+            public int EdgeCount { get; }
+        }
+
+        /// <summary>
+        ///     Gets the project nodes representing the entry points.
+        /// </summary>
+        public IReadOnlyCollection<ProjectGraphNode> EntryPointNodes { get; }
+
+        /// <summary>
+        ///     Get an unordered collection of all project nodes in the graph.
+        /// </summary>
+        public IReadOnlyCollection<ProjectGraphNode> ProjectNodes { get; }
+
+        /// <summary>
+        ///     Get a topologically sorted collection of all project nodes in the graph.
+        ///     Referenced projects appear before the referencing projects.
+        /// </summary>
+        public IReadOnlyCollection<ProjectGraphNode> ProjectNodesTopologicallySorted => _projectNodesTopologicallySorted.Value;
+
+        public IReadOnlyCollection<ProjectGraphNode> GraphRoots { get; }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project file, evaluating with the global project collection and no
+        ///     global properties.
+        /// </summary>
+        /// <param name="entryProjectFile">The project file to use as the entry point in constructing the graph</param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(string entryProjectFile)
+            : this(new ProjectGraphEntryPoint(entryProjectFile).AsEnumerable(), ProjectCollection.GlobalProjectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project files, evaluating with the global project collection and no
+        ///     global properties.
+        /// </summary>
+        /// <param name="entryProjectFiles">The project files to use as the entry points in constructing the graph</param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(IEnumerable<string> entryProjectFiles)
+            : this(ProjectGraphEntryPoint.CreateEnumerable(entryProjectFiles), ProjectCollection.GlobalProjectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project file, evaluating with the provided project collection and no
+        ///     global properties.
+        /// </summary>
+        /// <param name="entryProjectFile">The project file to use as the entry point in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(string entryProjectFile, ProjectCollection projectCollection)
+            : this(new ProjectGraphEntryPoint(entryProjectFile).AsEnumerable(), projectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project files, evaluating with the provided project collection and no
+        ///     global properties.
+        /// </summary>
+        /// <param name="entryProjectFiles">The project files to use as the entry points in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(IEnumerable<string> entryProjectFiles, ProjectCollection projectCollection)
+            : this(ProjectGraphEntryPoint.CreateEnumerable(entryProjectFiles), projectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project file, evaluating with the global project collection and no
+        ///     global properties.
+        /// </summary>
+        /// <param name="entryProjectFile">The project file to use as the entry point in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <param name="projectInstanceFactory">
+        ///     A delegate used for constructing a <see cref="ProjectInstance" />, called for each
+        ///     project created during graph creation. This value can be null, which uses
+        ///     a default implementation that calls the ProjectInstance constructor. See the remarks
+        ///     on the <see cref="ProjectInstanceFactoryFunc" /> for other scenarios.
+        /// </param>
+        /// <exception cref="AggregateException">
+        ///     If the evaluation of any project in the graph fails, the InnerException contains
+        ///     <see cref="InvalidProjectFileException" />
+        ///     If a null reference is returned from <paramref name="projectInstanceFactory" />, the InnerException contains
+        ///     <see cref="InvalidOperationException" />
+        /// </exception>
+        public ProjectGraph(string entryProjectFile, ProjectCollection projectCollection, ProjectInstanceFactoryFunc projectInstanceFactory)
+            : this(new ProjectGraphEntryPoint(entryProjectFile).AsEnumerable(), projectCollection, projectInstanceFactory)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project file, evaluating with the provided global properties and the
+        ///     global project collection.
+        /// </summary>
+        /// <param name="entryProjectFile">The project file to use as the entry point in constructing the graph</param>
+        /// <param name="globalProperties">
+        ///     The global properties to use for all projects. May be null, in which case no global
+        ///     properties will be set.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(string entryProjectFile, IDictionary<string, string> globalProperties)
+            : this(new ProjectGraphEntryPoint(entryProjectFile, globalProperties).AsEnumerable(), ProjectCollection.GlobalProjectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project files, evaluating with the provided global properties and the
+        ///     global project collection.
+        /// </summary>
+        /// <param name="entryProjectFiles">The project files to use as the entry points in constructing the graph</param>
+        /// <param name="globalProperties">
+        ///     The global properties to use for all projects. May be null, in which case no global
+        ///     properties will be set.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(IEnumerable<string> entryProjectFiles, IDictionary<string, string> globalProperties)
+            : this(ProjectGraphEntryPoint.CreateEnumerable(entryProjectFiles, globalProperties), ProjectCollection.GlobalProjectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project file, evaluating with the provided global properties and the
+        ///     provided project collection.
+        /// </summary>
+        /// <param name="entryProjectFile">The project file to use as the entry point in constructing the graph</param>
+        /// <param name="globalProperties">
+        ///     The global properties to use for all projects. May be null, in which case no global
+        ///     properties will be set.
+        /// </param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(string entryProjectFile, IDictionary<string, string> globalProperties, ProjectCollection projectCollection)
+            : this(new ProjectGraphEntryPoint(entryProjectFile, globalProperties).AsEnumerable(), projectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given project files, evaluating with the provided global properties and the
+        ///     provided project collection.
+        /// </summary>
+        /// <param name="entryProjectFiles">The project files to use as the entry points in constructing the graph</param>
+        /// <param name="globalProperties">
+        ///     The global properties to use for all projects. May be null, in which case no global
+        ///     properties will be set.
+        /// </param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(IEnumerable<string> entryProjectFiles, IDictionary<string, string> globalProperties, ProjectCollection projectCollection)
+            : this(ProjectGraphEntryPoint.CreateEnumerable(entryProjectFiles, globalProperties), projectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given graph entry point, evaluating with the global project collection.
+        /// </summary>
+        /// <param name="entryPoint">The entry point to use in constructing the graph</param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(ProjectGraphEntryPoint entryPoint)
+            : this(entryPoint.AsEnumerable(), ProjectCollection.GlobalProjectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given graph entry points, evaluating with the global project collection.
+        /// </summary>
+        /// <param name="entryPoints">The entry points to use in constructing the graph</param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(IEnumerable<ProjectGraphEntryPoint> entryPoints)
+            : this(entryPoints, ProjectCollection.GlobalProjectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given graph entry point, evaluating with the provided project collection.
+        /// </summary>
+        /// <param name="entryPoint">The entry point to use in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        public ProjectGraph(ProjectGraphEntryPoint entryPoint, ProjectCollection projectCollection)
+            : this(entryPoint.AsEnumerable(), projectCollection, null)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given graph entry points, evaluating with the provided project collection.
+        /// </summary>
+        /// <param name="entryPoints">The entry points to use in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <param name="projectInstanceFactory">
+        ///     A delegate used for constructing a <see cref="ProjectInstance" />, called for each
+        ///     project created during graph creation. This value can be null, which uses
+        ///     a default implementation that calls the ProjectInstance constructor. See the remarks
+        ///     on <see cref="ProjectInstanceFactoryFunc" /> for other scenarios.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        ///     If a null reference is returned from <paramref name="projectInstanceFactory" />
+        /// </exception>
+        /// <exception cref="CircularDependencyException">
+        ///     If the evaluation is successful but the project graph contains a circular
+        ///     dependency
+        /// </exception>
+        public ProjectGraph(
+            IEnumerable<ProjectGraphEntryPoint> entryPoints,
+            ProjectCollection projectCollection,
+            ProjectInstanceFactoryFunc projectInstanceFactory)
+            : this(
+                entryPoints,
+                projectCollection,
+                projectInstanceFactory,
+                NativeMethodsShared.GetLogicalCoreCount(),
+                CancellationToken.None)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given graph entry points, evaluating with the provided project collection.
+        /// </summary>
+        /// <param name="entryPoints">The entry points to use in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <param name="projectInstanceFactory">
+        ///     A delegate used for constructing a <see cref="ProjectInstance" />, called for each
+        ///     project created during graph creation. This value can be null, which uses
+        ///     a default implementation that calls the ProjectInstance constructor. See the remarks
+        ///     on <see cref="ProjectInstanceFactoryFunc" /> for other scenarios.
+        /// </param>
+        /// <param name="cancellationToken">
+        ///     The <see cref="CancellationToken"/> to observe.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        ///     If a null reference is returned from <paramref name="projectInstanceFactory" />
+        /// </exception>
+        /// <exception cref="CircularDependencyException">
+        ///     If the evaluation is successful but the project graph contains a circular
+        ///     dependency
+        /// </exception>
+        public ProjectGraph(
+            IEnumerable<ProjectGraphEntryPoint> entryPoints,
+            ProjectCollection projectCollection,
+            ProjectInstanceFactoryFunc projectInstanceFactory,
+            CancellationToken cancellationToken)
+            : this(
+                entryPoints,
+                projectCollection,
+                projectInstanceFactory,
+                NativeMethodsShared.GetLogicalCoreCount(),
+                cancellationToken)
+        {
+        }
+
+        /// <summary>
+        ///     Constructs a graph starting from the given graph entry points, evaluating with the provided project collection.
+        /// </summary>
+        /// <param name="entryPoints">The entry points to use in constructing the graph</param>
+        /// <param name="projectCollection">
+        ///     The collection with which all projects in the graph should be associated. May not be
+        ///     null.
+        /// </param>
+        /// <param name="projectInstanceFactory">
+        ///     A delegate used for constructing a <see cref="ProjectInstance" />, called for each
+        ///     project created during graph creation. This value can be null, which uses
+        ///     a default implementation that calls the ProjectInstance constructor. See the remarks
+        ///     on <see cref="ProjectInstanceFactoryFunc" /> for other scenarios.
+        /// </param>
+        /// <param name="degreeOfParallelism">
+        ///     Number of threads to participate in building the project graph.
+        /// </param>
+        /// <param name="cancellationToken">
+        ///     The <see cref="CancellationToken"/> to observe.
+        /// </param>
+        /// <exception cref="InvalidProjectFileException">
+        ///     If the evaluation of any project in the graph fails
+        /// </exception>
+        /// <exception cref="InvalidOperationException">
+        ///     If a null reference is returned from <paramref name="projectInstanceFactory" />
+        /// </exception>
+        /// <exception cref="CircularDependencyException">
+        ///     If the evaluation is successful but the project graph contains a circular
+        ///     dependency
+        /// </exception>
+        public ProjectGraph(
+            IEnumerable<ProjectGraphEntryPoint> entryPoints,
+            ProjectCollection projectCollection,
+            ProjectInstanceFactoryFunc projectInstanceFactory,
+            int degreeOfParallelism,
+            CancellationToken cancellationToken)
+            : this(new ProjectGraphOptions
+                    {
+                        EntryPoints = entryPoints,
+                        ProjectCollection = projectCollection,
+                        ProjectInstanceFactoryFunc = projectInstanceFactory,
+                        DegreeOfParallelism = degreeOfParallelism
+                    },
+                  cancellationToken)
+        {
+        }
+
+        /// <summary>
+        /// Constructs a graph starting from the given graph options.
+        /// </summary>
+        /// <param name="options">A <see cref="ProjectGraphOptions" /> containing the entry projects, project collection, and other details about the graph.</param>
+        /// <param name="cancellationToken">The <see cref="CancellationToken"/> to observe.</param>
+        /// <exception cref="InvalidProjectFileException">If the evaluation of any project in the graph fails.</exception>
+        /// <exception cref="CircularDependencyException">If the evaluation is successful but the project graph contains a circular dependency.</exception>
+        public ProjectGraph(
+            ProjectGraphOptions options,
+            CancellationToken cancellationToken = default)
+        {
+            ArgumentNullException.ThrowIfNull(options.ProjectCollection, nameof(options.ProjectCollection));
+            ArgumentNullException.ThrowIfNull(options.EntryPoints, nameof(options.EntryPoints));
+            if (options.DegreeOfParallelism <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(options.DegreeOfParallelism), "DegreeOfParallelism must be greater than zero.");
+            }
+
+            var measurementInfo = BeginMeasurement();
+
+            ProjectInstanceFactoryFunc projectInstanceFactory = options.ProjectInstanceFactoryFunc;
+
+            if (projectInstanceFactory is null)
+            {
+                _evaluationContext = EvaluationContext.Create(EvaluationContext.SharingPolicy.Shared);
+                projectInstanceFactory = DefaultProjectInstanceFactory;
+            }
+
+            var graphBuilder = new GraphBuilder(
+                options.EntryPoints,
+                options.ProjectCollection,
+                projectInstanceFactory,
+                ProjectInterpretation.Instance,
+                options.DegreeOfParallelism,
+                options.Mode,
+                cancellationToken);
+            graphBuilder.BuildGraph();
+
+            EntryPointNodes = graphBuilder.EntryPointNodes;
+            GraphRoots = graphBuilder.RootNodes;
+            ProjectNodes = graphBuilder.ProjectNodes;
+            Edges = graphBuilder.Edges;
+            Solution = graphBuilder.Solution;
+
+            _projectNodesTopologicallySorted = new Lazy<IReadOnlyCollection<ProjectGraphNode>>(() => TopologicalSort(GraphRoots, ProjectNodes));
+
+            ConstructionMetrics = EndMeasurement();
+
+            (Stopwatch Timer, string ETWArgs) BeginMeasurement()
+            {
+                string etwArgs = null;
+
+                if (MSBuildEventSource.Log.IsEnabled())
+                {
+                    etwArgs = string.Join(";", options.EntryPoints.Select(
+                        e =>
+                        {
+                            var globalPropertyString = e.GlobalProperties == null
+                                ? string.Empty
+                                : string.Join(", ", e.GlobalProperties.Select(kvp => $"{kvp.Key} = {kvp.Value}"));
+
+                            return $"{e.ProjectFile}({globalPropertyString})";
+                        }));
+
+                    MSBuildEventSource.Log.ProjectGraphConstructionStart(etwArgs);
+                }
+
+                return (Stopwatch.StartNew(), etwArgs);
+            }
+
+            GraphConstructionMetrics EndMeasurement()
+            {
+                if (MSBuildEventSource.Log.IsEnabled())
+                {
+                    MSBuildEventSource.Log.ProjectGraphConstructionStop(measurementInfo.ETWArgs);
+                }
+
+                measurementInfo.Timer.Stop();
+
+                return new GraphConstructionMetrics(
+                    measurementInfo.Timer.Elapsed,
+                    ProjectNodes.Count,
+                    Edges.Count);
+            }
+        }
+
+        internal string ToDot(IReadOnlyDictionary<ProjectGraphNode, ImmutableList<string>> targetsPerNode = null)
+        {
+            var nodeCount = 0;
+            return ToDot(node => nodeCount++.ToString(), targetsPerNode);
+        }
+
+        internal string ToDot(
+            Func<ProjectGraphNode, string> nodeIdProvider,
+            IReadOnlyDictionary<ProjectGraphNode, ImmutableList<string>> targetsPerNode = null)
+        {
+            ArgumentNullException.ThrowIfNull(nodeIdProvider);
+
+            var nodeIds = new ConcurrentDictionary<ProjectGraphNode, string>();
+
+            var sb = new StringBuilder();
+
+            sb.AppendLine($"/* {DebuggerDisplayString()} */");
+
+            sb.AppendLine("digraph g")
+                .AppendLine("{")
+                .AppendLine("\tnode [shape=box]");
+
+            foreach (var node in ProjectNodes)
+            {
+                var nodeId = GetNodeId(node);
+
+                var nodeName = Path.GetFileNameWithoutExtension(node.ProjectInstance.FullPath);
+
+                var globalPropertiesString = string.Join(
+                    "<br/>",
+                    node.ProjectInstance.GlobalProperties.OrderBy(kvp => kvp.Key)
+                        .Select(kvp => $"{kvp.Key}={kvp.Value}"));
+
+                var targetListString = GetTargetListString(node);
+
+                sb.AppendLine($"\t{nodeId} [label=<{nodeName}<br/>({targetListString})<br/>{globalPropertiesString}>]");
+
+                foreach (var reference in node.ProjectReferences)
+                {
+                    var referenceId = GetNodeId(reference);
+
+                    sb.AppendLine($"\t{nodeId} -> {referenceId}");
+                }
+            }
+
+            sb.Append('}');
+
+            return sb.ToString();
+
+            string GetNodeId(ProjectGraphNode node)
+            {
+                return nodeIds.GetOrAdd(node, (n, idProvider) => idProvider(n), nodeIdProvider);
+            }
+
+            string GetTargetListString(ProjectGraphNode node)
+            {
+                var targetListString = targetsPerNode is null
+                    ? string.Empty
+                    : string.Join(", ", targetsPerNode[node]);
+                return targetListString;
+            }
+        }
+
+        private string DebuggerDisplayString()
+        {
+            return $"#roots={GraphRoots.Count}, #nodes={ProjectNodes.Count}, #entryPoints={EntryPointNodes.Count}";
+        }
+
+        private static IReadOnlyCollection<ProjectGraphNode> TopologicalSort(
+            IReadOnlyCollection<ProjectGraphNode> graphRoots,
+            IReadOnlyCollection<ProjectGraphNode> graphNodes)
+        {
+            var toposort = new List<ProjectGraphNode>(graphNodes.Count);
+            var partialRoots = new Queue<ProjectGraphNode>(graphNodes.Count);
+            var inDegree = graphNodes.ToDictionary(n => n, n => n.ReferencingProjects.Count);
+
+            foreach (var root in graphRoots)
+            {
+                partialRoots.Enqueue(root);
+            }
+
+            while (partialRoots.Count != 0)
+            {
+                var partialRoot = partialRoots.Dequeue();
+
+                toposort.Add(partialRoot);
+
+                foreach (var reference in partialRoot.ProjectReferences)
+                {
+                    if (--inDegree[reference] == 0)
+                    {
+                        partialRoots.Enqueue(reference);
+                    }
+                }
+            }
+
+            Assumed.Equal(toposort.Count, graphNodes.Count, "sorted node count must be equal to total node count");
+
+            toposort.Reverse();
+
+            return toposort;
+        }
+
+        /// <summary>
+        ///     Gets the target list to be executed for every project in the graph, given a particular target list for the entry
+        ///     project.
+        /// </summary>
+        /// <remarks>
+        ///     This method uses the ProjectReferenceTargets items to determine the targets to run per node. The results can then
+        ///     be used to start building each project individually, assuming a given project is built after its references.
+        /// </remarks>
+        /// <param name="entryProjectTargets">The target list for the entry project. May be null or empty, in which case the entry
+        /// projects' default targets will be used.
+        /// </param>
+        /// <returns>
+        ///     A dictionary containing the target list for each node. If a node's target list is empty, then no targets were
+        ///     inferred for that node and it should get skipped during a graph based build.
+        /// </returns>
+        public IReadOnlyDictionary<ProjectGraphNode, ImmutableList<string>> GetTargetLists(ICollection<string> entryProjectTargets)
+        {
+            ThrowOnEmptyTargetNames(entryProjectTargets);
+
+            // Seed the dictionary with empty lists for every node. In this particular case though an empty list means "build nothing" rather than "default targets".
+            var targetLists = ProjectNodes.ToDictionary(node => node, node => ImmutableList<string>.Empty);
+
+            var encounteredEdges = new HashSet<ProjectGraphBuildRequest>();
+            var edgesToVisit = new Queue<ProjectGraphBuildRequest>();
+
+            if (entryProjectTargets == null || entryProjectTargets.Count == 0)
+            {
+                // If no targets were specified, use every project's default targets.
+                foreach (ProjectGraphNode entryPointNode in EntryPointNodes)
+                {
+                    string[] entryTargets = entryPointNode.ProjectInstance.DefaultTargets.ToArray();
+                    var entryEdge = new ProjectGraphBuildRequest(entryPointNode, entryTargets);
+                    encounteredEdges.Add(entryEdge);
+                    edgesToVisit.Enqueue(entryEdge);
+                }
+            }
+            else
+            {
+                foreach (string targetName in entryProjectTargets)
+                {
+                    // Special-case the "Build" target. The solution's metaproj invokes each project's default targets
+                    if (targetName.Equals("Build", StringComparison.OrdinalIgnoreCase))
+                    {
+                        foreach (ProjectGraphNode entryPointNode in EntryPointNodes)
+                        {
+                            string[] entryTargets = entryPointNode.ProjectInstance.DefaultTargets.ToArray();
+                            var entryEdge = new ProjectGraphBuildRequest(entryPointNode, entryTargets);
+                            encounteredEdges.Add(entryEdge);
+                            edgesToVisit.Enqueue(entryEdge);
+                        }
+
+                        continue;
+                    }
+
+                    bool isSolutionTraversalTarget = false;
+                    if (Solution != null)
+                    {
+                        foreach (ProjectInSolution project in Solution.ProjectsInOrder)
+                        {
+                            if (!SolutionFile.IsBuildableProject(project))
+                            {
+                                continue;
+                            }
+
+                            string baseProjectName = ProjectInSolution.DisambiguateProjectTargetName(project.GetUniqueProjectName());
+
+                            // Solutions generate target names to build individual projects. Map these to "real" targets on the relevant projects.
+                            // This logic should match SolutionProjectGenerator's behavior, particularly EvaluateAndAddProjects's calls to AddTraversalTargetForProject.
+                            if (MSBuildNameIgnoreCaseComparer.Default.Equals(targetName, baseProjectName))
+                            {
+                                // Build a specific project with its default targets.
+                                ProjectGraphNode node = GetNodeForProject(project);
+                                ProjectGraphBuildRequest entryEdge = new(node, node.ProjectInstance.DefaultTargets.ToArray());
+                                encounteredEdges.Add(entryEdge);
+                                edgesToVisit.Enqueue(entryEdge);
+                                isSolutionTraversalTarget = true;
+                            }
+                            else if (targetName.StartsWith($"{baseProjectName}:", StringComparison.OrdinalIgnoreCase))
+                            {
+                                // Build a specific project with the specified target
+                                string projectTargetName = targetName.Substring(baseProjectName.Length + 1);
+
+                                // Special-case "Project:" and "Project:Build". SolutionProjectGenerator does not generate a target for those, so should error with MSB4057
+                                ProjectErrorUtilities.VerifyThrowInvalidProject(
+                                    projectTargetName.Length > 0 && !projectTargetName.Equals("Build", StringComparison.OrdinalIgnoreCase),
+                                    ElementLocation.Create(Solution.FullPath),
+                                    "TargetDoesNotExist",
+                                    targetName);
+
+                                ProjectGraphNode node = GetNodeForProject(project);
+                                ProjectGraphBuildRequest entryEdge = new(node, [projectTargetName]);
+                                encounteredEdges.Add(entryEdge);
+                                edgesToVisit.Enqueue(entryEdge);
+                                isSolutionTraversalTarget = true;
+                            }
+
+                            // For solutions, there should only be exactly one entry node per project file
+                            ProjectGraphNode GetNodeForProject(ProjectInSolution project) => EntryPointNodes.First(node => string.Equals(node.ProjectInstance.FullPath, project.AbsolutePath));
+                        }
+                    }
+
+                    if (!isSolutionTraversalTarget)
+                    {
+                        foreach (ProjectGraphNode entryPointNode in EntryPointNodes)
+                        {
+                            ProjectGraphBuildRequest entryEdge = new(entryPointNode, [targetName]);
+                            encounteredEdges.Add(entryEdge);
+                            edgesToVisit.Enqueue(entryEdge);
+                        }
+                    }
+                }
+            }
+
+            // Traverse the entire graph, visiting each edge once.
+            while (edgesToVisit.Count > 0)
+            {
+                var buildRequest = edgesToVisit.Dequeue();
+                var node = buildRequest.Node;
+                var requestedTargets = buildRequest.RequestedTargets;
+
+                targetLists[node] = targetLists[node].AddRange(requestedTargets);
+
+                // No need to continue if this node has no project references.
+                if (node.ProjectReferences.Count == 0)
+                {
+                    continue;
+                }
+
+                // Based on the entry points of this project, determine which targets to propagate down to project references.
+                var targetsToPropagate = ProjectInterpretation.TargetsToPropagate.FromProjectAndEntryTargets(node.ProjectInstance, requestedTargets);
+
+                // Queue the project references for visitation, if the edge hasn't already been traversed.
+                foreach (var referenceNode in node.ProjectReferences)
+                {
+                    string[] applicableTargets = targetsToPropagate.GetApplicableTargetsForReference(referenceNode);
+
+                    if (applicableTargets.Length == 0)
+                    {
+                        continue;
+                    }
+
+                    string[] expandedTargets = ExpandDefaultTargets(
+                        applicableTargets,
+                        referenceNode.ProjectInstance.DefaultTargets,
+                        Edges[(node, referenceNode)]);
+
+                    var projectReferenceEdge = new ProjectGraphBuildRequest(
+                        referenceNode,
+                        expandedTargets);
+
+                    if (encounteredEdges.Add(projectReferenceEdge))
+                    {
+                        edgesToVisit.Enqueue(projectReferenceEdge);
+                    }
+                }
+            }
+
+            // Dedupe target lists
+            var entriesToUpdate = new List<KeyValuePair<ProjectGraphNode, ImmutableList<string>>>();
+            foreach (var pair in targetLists)
+            {
+                var targetList = pair.Value;
+
+                var seenTargets = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
+                var i = 0;
+                while (i < targetList.Count)
+                {
+                    if (seenTargets.Add(targetList[i]))
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        targetList = targetList.RemoveAt(i);
+                    }
+                }
+
+                // Only update if it changed
+                if (targetList != pair.Value)
+                {
+                    entriesToUpdate.Add(new KeyValuePair<ProjectGraphNode, ImmutableList<string>>(pair.Key, targetList));
+                }
+            }
+
+            // Update in a separate pass to avoid modifying a collection while iterating it.
+            foreach (var pair in entriesToUpdate)
+            {
+                targetLists[pair.Key] = pair.Value;
+            }
+
+            return targetLists;
+
+            void ThrowOnEmptyTargetNames(ICollection<string> targetNames)
+            {
+                if (targetNames == null || targetNames.Count == 0)
+                {
+                    return;
+                }
+
+                if (targetNames.Any(targetName => string.IsNullOrWhiteSpace(targetName)))
+                {
+                    throw new ArgumentException(ResourceUtilities.FormatResourceStringIgnoreCodeAndKeyword("OM_TargetNameNullOrEmpty", nameof(GetTargetLists)));
+                }
+            }
+        }
+
+        internal static string[] ExpandDefaultTargets(string[] targets, List<string> defaultTargets, ProjectItemInstance graphEdge)
+        {
+            // Dedup the BFS-edge target list. The N^depth graph-explosion behavior this
+            // function defends against has two sources: (1) marker expansion injecting a
+            // duplicate-bearing payload — including markers from a previously-deduped hop
+            // re-expanding against the next hop's PRT shape; and (2) literal duplicates in
+            // the input list propagating through FromProjectAndEntryTargets, where each
+            // duplicated entry target re-matches the same PRT items at the next hop and
+            // multiplies the propagated count. Bounding the result here breaks the chain
+            // at the source for both, so we dedup unconditionally rather than only on
+            // marker expansion.
+            //
+            // The outer post-BFS dedup in GetTargetLists still runs and collapses each
+            // per-node final list, so the publicly-observable result is unchanged. The
+            // benefit of dedup here is purely structural: smaller per-edge requestedTargets
+            // means fewer distinct ProjectGraphBuildRequest entries in encounteredEdges
+            // and far less BFS thrash.
+            //
+            // Fast path: for small inputs (the typical post-first-hop BFS shape — count
+            // 1-3 in real .NET builds) do an inline O(n^2) scan that detects markers and
+            // duplicates in place. If neither is present, return targets unchanged with
+            // zero allocation. Above the threshold we fall through to the HashSet-backed
+            // slow path; the O(n^2) cost would dominate the HashSet allocation otherwise.
+            int count = targets.Length;
+            if (count == 0)
+            {
+                return targets;
+            }
+
+            const int InlineScanThreshold = 8;
+            if (count <= InlineScanThreshold)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    string target = targets[i];
+                    if (target.Equals(MSBuildConstants.DefaultTargetsMarker, StringComparison.OrdinalIgnoreCase) ||
+                        target.Equals(MSBuildConstants.ProjectReferenceTargetsOrDefaultTargetsMarker, StringComparison.OrdinalIgnoreCase))
+                    {
+                        return ExpandDefaultTargetsSlow(targets, defaultTargets, graphEdge);
+                    }
+
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (string.Equals(targets[j], target, StringComparison.OrdinalIgnoreCase))
+                        {
+                            return ExpandDefaultTargetsSlow(targets, defaultTargets, graphEdge);
+                        }
+                    }
+                }
+
+                return targets;
+            }
+
+            return ExpandDefaultTargetsSlow(targets, defaultTargets, graphEdge);
+        }
+
+        private static string[] ExpandDefaultTargetsSlow(string[] targets, List<string> defaultTargets, ProjectItemInstance graphEdge)
+        {
+            // Slow path. Reached when (a) input contains at least one marker or duplicate
+            // and was small enough for the fast path to detect it, or (b) input is larger
+            // than the inline-scan threshold and we go straight here.
+            //
+            // The lazy buffer pattern keeps allocations to the minimum necessary: if the
+            // input turns out to be marker-and-dup-free (only possible in the large-count
+            // case (b)) we never allocate the result List<string>, only the HashSet.
+            int count = targets.Length;
+            var seen = new HashSet<string>(count, StringComparer.OrdinalIgnoreCase);
+            List<string> result = null;
+
+            for (int i = 0; i < count; i++)
+            {
+                string target = targets[i];
+
+                if (target.Equals(MSBuildConstants.DefaultTargetsMarker, StringComparison.OrdinalIgnoreCase))
+                {
+                    EnsureBuffer(targets, i, ref result);
+                    foreach (string defaultTarget in defaultTargets)
+                    {
+                        if (seen.Add(defaultTarget))
+                        {
+                            result.Add(defaultTarget);
+                        }
+                    }
+                }
+                else if (target.Equals(MSBuildConstants.ProjectReferenceTargetsOrDefaultTargetsMarker, StringComparison.OrdinalIgnoreCase))
+                {
+                    EnsureBuffer(targets, i, ref result);
+                    string targetsString = graphEdge.GetMetadataValue(ItemMetadataNames.ProjectReferenceTargetsMetadataName);
+                    if (string.IsNullOrEmpty(targetsString))
+                    {
+                        foreach (string defaultTarget in defaultTargets)
+                        {
+                            if (seen.Add(defaultTarget))
+                            {
+                                result.Add(defaultTarget);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (string expandedTarget in ExpressionShredder.SplitSemiColonSeparatedList(targetsString))
+                        {
+                            if (seen.Add(expandedTarget))
+                            {
+                                result.Add(expandedTarget);
+                            }
+                        }
+                    }
+                }
+                else if (seen.Add(target))
+                {
+                    result?.Add(target);
+                }
+                else
+                {
+                    // First duplicate in plain-target territory. Materialize the verbatim
+                    // unique prefix into the buffer; subsequent unique entries will be added
+                    // through the buffer above.
+                    EnsureBuffer(targets, i, ref result);
+                }
+            }
+
+            return result?.ToArray() ?? targets;
+
+            static void EnsureBuffer(string[] targets, int currentIndex, ref List<string> result)
+            {
+                if (result is not null)
+                {
+                    return;
+                }
+
+                result = new List<string>(targets.Length);
+                for (int k = 0; k < currentIndex; k++)
+                {
+                    result.Add(targets[k]);
+                }
+            }
+        }
+
+        internal ProjectInstance DefaultProjectInstanceFactory(
+            string projectPath,
+            Dictionary<string, string> globalProperties,
+            ProjectCollection projectCollection)
+        {
+            Debug.Assert(_evaluationContext is not null);
+
+            return StaticProjectInstanceFactory(
+                                projectPath,
+                                globalProperties,
+                                projectCollection,
+                                _evaluationContext);
+        }
+
+        internal static ProjectInstance StaticProjectInstanceFactory(
+            string projectPath,
+            Dictionary<string, string> globalProperties,
+            ProjectCollection projectCollection,
+            EvaluationContext evaluationContext)
+        {
+            return new ProjectInstance(
+                projectPath,
+                globalProperties,
+                MSBuildConstants.CurrentToolsVersion,
+                subToolsetVersion: null,
+                projectCollection,
+                evaluationContext);
+        }
+
+        private struct ProjectGraphBuildRequest : IEquatable<ProjectGraphBuildRequest>
+        {
+            public ProjectGraphBuildRequest(ProjectGraphNode node, string[] targets)
+            {
+                Node = node ?? throw new ArgumentNullException(nameof(node));
+                RequestedTargets = targets ?? throw new ArgumentNullException(nameof(targets));
+            }
+
+            public ProjectGraphNode Node { get; }
+
+            public string[] RequestedTargets { get; }
+
+            public readonly bool Equals(ProjectGraphBuildRequest other)
+            {
+                if (Node != other.Node
+                    || RequestedTargets.Length != other.RequestedTargets.Length)
+                {
+                    return false;
+                }
+
+                // Target order is important
+                for (int i = 0; i < RequestedTargets.Length; i++)
+                {
+                    if (!RequestedTargets[i].Equals(other.RequestedTargets[i], StringComparison.OrdinalIgnoreCase))
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            public override readonly bool Equals(object obj)
+            {
+                return obj is ProjectGraphBuildRequest graphNodeWithTargets && Equals(graphNodeWithTargets);
+            }
+
+            public override readonly int GetHashCode()
+            {
+                unchecked
+                {
+                    const int salt = 397;
+                    int hashCode = Node.GetHashCode() * salt;
+                    for (int i = 0; i < RequestedTargets.Length; i++)
+                    {
+                        hashCode *= salt;
+                        hashCode ^= StringComparer.OrdinalIgnoreCase.GetHashCode(RequestedTargets[i]);
+                    }
+
+                    return hashCode;
+                }
+            }
+        }
+    }
+}

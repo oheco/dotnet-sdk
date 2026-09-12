@@ -1011,4 +1011,13 @@ You may need to build the project on another operating system or architecture, o
     <comment>{StrBegins="NETSDK1234: "}{Locked="RoslynCompilerType"}{Locked="Framework"}{Locked="{0}"}</comment>
   </data>
   <!-- The latest message added is RoslynCompilerTypeFrameworkIsDeprecated. Please update this value with each PR to catch parallel PRs both adding a new message -->
+  <data name="OpenHarmonySigningHostUnsupported" xml:space="preserve">
+    <value>OpenHarmony signing requires MSBuild running on .NET on a Unix host.</value>
+  </data>
+  <data name="OpenHarmonySigningFailed" xml:space="preserve">
+    <value>OpenHarmony signing failed for '{0}' (exit {1}): {2}</value>
+  </data>
+  <data name="OpenHarmonySigningToolFailed" xml:space="preserve">
+    <value>Could not start OpenHarmony signing tool '{0}': {1}. Ensure binary-sign-tool from the native SDK is on PATH, or set OpenHarmonySigningTool.</value>
+  </data>
 </root>

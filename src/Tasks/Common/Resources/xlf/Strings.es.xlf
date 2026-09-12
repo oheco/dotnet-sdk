@@ -731,6 +731,21 @@ The following are names of parameters or literal values and should not be transl
         <target state="translated">NETSDK1151: El proyecto al que se hace referencia '{0}' es un ejecutable independiente.  Un ejecutable independiente no puede hacer referencia a un no ejecutable independiente.  Para obtener más información, consulte https://aka.ms/netsdk1151</target>
         <note>{StrBegins="NETSDK1151: "}</note>
       </trans-unit>
+      <trans-unit id="OpenHarmonySigningFailed">
+        <source>OpenHarmony signing failed for '{0}' (exit {1}): {2}</source>
+        <target state="new">OpenHarmony signing failed for '{0}' (exit {1}): {2}</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="OpenHarmonySigningHostUnsupported">
+        <source>OpenHarmony signing requires MSBuild running on .NET on a Unix host.</source>
+        <target state="new">OpenHarmony signing requires MSBuild running on .NET on a Unix host.</target>
+        <note />
+      </trans-unit>
+      <trans-unit id="OpenHarmonySigningToolFailed">
+        <source>Could not start OpenHarmony signing tool '{0}': {1}. Ensure binary-sign-tool from the native SDK is on PATH, or set OpenHarmonySigningTool.</source>
+        <target state="new">Could not start OpenHarmony signing tool '{0}': {1}. Ensure binary-sign-tool from the native SDK is on PATH, or set OpenHarmonySigningTool.</target>
+        <note />
+      </trans-unit>
       <trans-unit id="PDBGeneratorInputExecutableNotFound">
         <source>NETSDK1162: PDB generation: R2R executable '{0}' not found.</source>
         <target state="translated">NETSDK1162: Generación de PDB: no se encontró el ejecutable de R2R "{0}".</target>

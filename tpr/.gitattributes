@@ -1,0 +1,4 @@
+# The complete upstream snapshot includes existing whitespace in fixtures/docs.
+msbuild/** -whitespace
+msbuild/LICENSE -text
+msbuild/THIRDPARTYNOTICES.txt -text

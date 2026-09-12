@@ -22,6 +22,12 @@
     <BuiltinManifests Include="microsoft.net.workload.mono.toolchain.net9" />
   </ItemGroup>
 
+  <!-- This SDK delivers CoreCLR and NativeAOT; no workload packs are built for OpenHarmony. -->
+  <ItemGroup Condition="'$(OSName)' == 'openharmony'">
+    <BundledManifests Remove="@(BundledManifests)" />
+    <BuiltinManifests Remove="@(BuiltinManifests)" />
+  </ItemGroup>
+
   <!-- Calculate NuGet package IDs for bundled manifests -->
   <PropertyGroup>
     <!-- TODO: Not exactly sure how this value should be calculated -->
@@ -110,6 +116,7 @@
 
     <MSBuild Projects="$(RepoRoot)src\Workloads\Manifests\manifest-packages.csproj"
              Targets="LayoutBuiltinManifests"
+             Condition="'$(OSName)' != 'openharmony'"
              Properties="ManifestDirectory=$(RedistInstallerLayoutPath)sdk-manifests\" />
   </Target>
 

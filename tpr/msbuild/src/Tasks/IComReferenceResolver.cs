@@ -1,0 +1,49 @@
+﻿// Licensed to the .NET Foundation under one or more agreements.
+// The .NET Foundation licenses this file to you under the MIT license.
+
+#if FEATURE_APPDOMAIN
+
+using TYPELIBATTR = Windows.Win32.System.Com.TLIBATTR;
+
+#nullable disable
+
+namespace Microsoft.Build.Tasks
+{
+    /// <summary>
+    /// Callback interface for COM references to resolve their dependencies
+    /// </summary>
+    internal interface IComReferenceResolver
+    {
+        /// <summary>
+        /// Resolves a COM classic reference given the type library attributes and the type of wrapper to use.
+        /// If wrapper type is not specified, this method will first look for an existing reference in the project,
+        /// fall back to looking for a PIA and finally try to generate a regular tlbimp wrapper.
+        ///
+        /// This method is available for references to call back to resolve their dependencies
+        /// </summary>
+        bool ResolveComClassicReference(TYPELIBATTR typeLibAttr, string outputDirectory, string wrapperType, string refName, out ComReferenceWrapperInfo wrapperInfo);
+
+        /// <summary>
+        /// Resolves a .NET assembly reference using the list of resolved managed references supplied to the task.
+        ///
+        /// This method is available for references to call back to resolve their dependencies
+        /// </summary>
+        bool ResolveNetAssemblyReference(string assemblyName, out string assemblyPath);
+
+        /*
+         * Method:  ResolveComAssemblyReference
+         *
+         *
+         */
+        /// <summary>
+        /// Resolves a COM wrapper assembly reference based on the COM references resolved so far. This method is necessary
+        /// for Ax wrappers only, so all necessary references will be resolved by then(since we resolve them in
+        /// the following order: pia, tlbimp, aximp)
+        ///
+        /// This method is available for references to call back to resolve their dependencies
+        /// </summary>
+        bool ResolveComAssemblyReference(string assemblyName, out string assemblyPath);
+    }
+}
+
+#endif

@@ -44,6 +44,7 @@
       (
        $(TargetRid.StartsWith('freebsd')) or
        $(TargetRid.StartsWith('illumos')) or
+       $(TargetRid.StartsWith('openharmony')) or
        $(TargetRid.StartsWith('linux-musl'))
       )">true</SkipBuildingInstallers>
   </PropertyGroup>
@@ -60,13 +61,13 @@
     <BundleCrossgen2 Condition="'$(BundleCrossgen2)' == '' and '$(DotNetBuildSourceOnly)' == 'true' and '$(DotNetBuildUseMonoRuntime)' != 'true' and '$(_IsCommunityPlatform)' == 'true'">true</BundleCrossgen2>
 
     <!-- Use the portable "linux-x64" Rid when downloading Linux shared framework compressed file. -->
-    <UsePortableLinuxSharedFramework Condition="'$(UsePortableLinuxSharedFramework)' == '' and '$(IsLinux)' == 'true' and !$(TargetRid.StartsWith('linux-musl'))">true</UsePortableLinuxSharedFramework>
+    <UsePortableLinuxSharedFramework Condition="'$(UsePortableLinuxSharedFramework)' == '' and '$(IsLinux)' == 'true' and !$(TargetRid.StartsWith('linux-musl')) and !$(TargetRid.StartsWith('openharmony'))">true</UsePortableLinuxSharedFramework>
     <HighEntropyVA>true</HighEntropyVA>
   </PropertyGroup>
 
   <PropertyGroup>
     <NetRuntimeRid Condition="'$(NetRuntimeRid)' == ''">$(HostRid)</NetRuntimeRid>
-    <NetRuntimeRid Condition="('$(OSName)' == 'win' or '$(OSName)' == 'osx' or '$(OSName)' == 'freebsd' or '$(OSName)' == 'illumos' or '$(OSName)' == 'solaris') and '$(DotNetBuildSourceOnly)' != 'true'">$(OSName)-$(TargetArchitecture)</NetRuntimeRid>
+    <NetRuntimeRid Condition="('$(OSName)' == 'win' or '$(OSName)' == 'osx' or '$(OSName)' == 'freebsd' or '$(OSName)' == 'illumos' or '$(OSName)' == 'solaris' or '$(OSName)' == 'openharmony') and '$(DotNetBuildSourceOnly)' != 'true'">$(OSName)-$(TargetArchitecture)</NetRuntimeRid>
     <NetRuntimeRid Condition="'$(DotNetBuild)' != 'true' and $(NetRuntimeRid.StartsWith('mariner.2.0'))">$(HostRid.Replace('mariner.2.0', 'cm.2'))</NetRuntimeRid>
 
     <SharedFrameworkRid>$(NetRuntimeRid)</SharedFrameworkRid>
@@ -76,6 +77,15 @@
 
   <PropertyGroup>
     <SdkPkgSourcesRootDirectory>$(MSBuildThisFileDirectory)pkg\</SdkPkgSourcesRootDirectory>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(TargetRid.StartsWith('openharmony-'))">
+    <!-- These platform packs are not available from the official NuGet feed. -->
+    <BundleRuntimePacks>true</BundleRuntimePacks>
+    <BundleNativeAotCompiler>true</BundleNativeAotCompiler>
+    <BundleCrossgen2>true</BundleCrossgen2>
+    <IncludeAspNetCoreRuntime>false</IncludeAspNetCoreRuntime>
+    <IncludeWpfAndWinForms>false</IncludeWpfAndWinForms>
   </PropertyGroup>
 
   <ItemGroup>

@@ -244,9 +244,9 @@
         android-x64;
         " />
 
-      <NetCoreAppHostRids Include="@(Net90AppHostRids)" />
+      <NetCoreAppHostRids Include="@(Net90AppHostRids);openharmony-arm64" />
 
-      <NetCoreRuntimePackRids Include="@(Net100RuntimePackRids)" />
+      <NetCoreRuntimePackRids Include="@(Net100RuntimePackRids);openharmony-arm64" />
 
       <!--
         In source-only builds, we build the current RID from source, which may be
@@ -265,7 +265,7 @@
         Include="$(ProductMonikerRid)" />
 
       <AspNetCoreRuntimePackRids
-        Condition="'$(BundleRuntimePacks)' == 'true'"
+        Condition="'$(BundleRuntimePacks)' == 'true' and '$(IncludeAspNetCoreRuntime)' != 'false'"
         Include="$(ProductMonikerRid)" />
 
       <Net60MonoRuntimePackRids Include="
@@ -358,7 +358,7 @@
         linux-musl-loongarch64;
         " />
 
-      <Crossgen2SupportedRids Include="@(Net90Crossgen2SupportedRids);" />
+      <Crossgen2SupportedRids Include="@(Net90Crossgen2SupportedRids);openharmony-arm64" />
 
       <Crossgen2SupportedPortableRids Include="@(Crossgen2SupportedRids)" />
 
@@ -396,6 +396,7 @@
            https://github.com/dotnet/runtime/blob/main/src/installer/pkg/projects/Microsoft.DotNet.ILCompiler/ILCompilerRIDs.props -->
       <ILCompilerSupportedRids Include="
         @(Net90ILCompilerSupportedRids);
+        openharmony-arm64;
         linux-riscv64;
         linux-musl-riscv64;
         " />
@@ -443,6 +444,7 @@
 
       <NativeAOTRuntimePackRids Include="
         @(Net90NativeAOTRuntimePackRids);
+        openharmony-arm64;
         linux-riscv64;
         linux-musl-riscv64;
         android-arm64;

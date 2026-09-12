@@ -74,6 +74,8 @@
       PackageVersion="$(MicrosoftNETCoreAppRefPackageVersion)"
       RelativeLayoutPath="packs/%(PackageName)/%(PackageVersion)" />
 
+    <!-- Keep the managed reference pack: restore probes transitive framework
+         references even for console projects. This does not bundle its runtime. -->
     <BundledLayoutPackage Include="Microsoft.AspNetCore.App.Ref"
       PackageName="Microsoft.AspNetCore.App.Ref"
       PackageVersion="$(MicrosoftAspNetCoreAppRefPackageVersion)"
@@ -92,7 +94,7 @@
 
     <BundledLayoutPackage Include="Microsoft.AspNetCore.App.Runtime.$(SharedFrameworkRid)"
       PackageName="Microsoft.AspNetCore.App.Runtime.$(SharedFrameworkRid)"
-      Condition="'$(BundleRuntimePacks)' == 'true'"
+      Condition="'$(BundleRuntimePacks)' == 'true' and '$(IncludeAspNetCoreRuntime)' != 'false'"
       PackageVersion="$(MicrosoftAspNetCoreAppRuntimePackageVersion)"
       RelativeLayoutPath="packs/%(PackageName)/%(PackageVersion)" />
 

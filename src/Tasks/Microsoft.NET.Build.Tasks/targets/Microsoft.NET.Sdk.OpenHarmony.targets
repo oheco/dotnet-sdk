@@ -1,0 +1,81 @@
+<Project>
+  <UsingTask TaskName="OpenHarmonyCodesign" AssemblyFile="$(MicrosoftNETBuildTasksAssembly)" />
+  <UsingTask TaskName="OpenHarmonyPrepareNativeCopy" AssemblyFile="$(MicrosoftNETBuildTasksAssembly)" />
+
+  <PropertyGroup>
+    <!-- Cross builds can opt in with an explicitly configured signing tool. -->
+    <OpenHarmonyCodesignEnabled Condition="'$(OpenHarmonyCodesignEnabled)' == '' and
+      $([System.Runtime.InteropServices.RuntimeInformation]::RuntimeIdentifier.StartsWith('openharmony-')) and
+      ('$(RuntimeIdentifier)' == '' or $(RuntimeIdentifier.StartsWith('openharmony-')))">true</OpenHarmonyCodesignEnabled>
+    <OpenHarmonySigningTool Condition="'$(OpenHarmonySigningTool)' == ''">binary-sign-tool</OpenHarmonySigningTool>
+    <_OpenHarmonySigningCache>$(IntermediateOutputPath)openharmony-signing</_OpenHarmonySigningCache>
+    <_OpenHarmonyPrepareNativeCopy Condition="$([System.Runtime.InteropServices.RuntimeInformation]::RuntimeIdentifier.StartsWith('openharmony-'))">true</_OpenHarmonyPrepareNativeCopy>
+  </PropertyGroup>
+
+  <!-- Preserve the normal copy decisions, but replace executed native inodes
+       before copying. These hooks do not change System.IO.File.Copy semantics.
+       NativeAOT's CopyNativeBinary already deletes its previous destination. -->
+  <Target Name="_OpenHarmonyPrepareCopyLocal" BeforeTargets="_CopyFilesMarkedCopyLocal"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true' and '$(UseCommonOutputDirectory)' != 'true'">
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(ReferenceCopyLocalPaths)"
+        DestinationFiles="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')"
+        SkipUnchangedFiles="$(SkipCopyUnchangedFiles)" />
+  </Target>
+  <Target Name="_OpenHarmonyPrepareBuildPreserveNewest" BeforeTargets="_CopyOutOfDateSourceItemsToOutputDirectory"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true'">
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(_SourceItemsToCopyToOutputDirectory)"
+        DestinationFiles="@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')" OnlyIfSourceNewer="true" />
+  </Target>
+  <Target Name="_OpenHarmonyPrepareBuildAlways" BeforeTargets="_CopyOutOfDateSourceItemsToOutputDirectoryAlways"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true'">
+    <PropertyGroup>
+      <SkipUnchangedFilesOnCopyAlways Condition="'$(SkipUnchangedFilesOnCopyAlways)' == ''">false</SkipUnchangedFilesOnCopyAlways>
+    </PropertyGroup>
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(_SourceItemsToCopyToOutputDirectoryAlways)"
+        DestinationFiles="@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')"
+        SkipUnchangedFiles="$(SkipUnchangedFilesOnCopyAlways)" />
+  </Target>
+  <Target Name="_OpenHarmonyPrepareBuildIfDifferent" BeforeTargets="_CopyDifferingSourceItemsToOutputDirectory"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true'">
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(_SourceItemsToCopyToOutputDirectoryIfDifferent)"
+        DestinationFiles="@(_SourceItemsToCopyToOutputDirectoryIfDifferent->'$(OutDir)%(TargetPath)')" SkipUnchangedFiles="true" />
+  </Target>
+  <Target Name="_OpenHarmonyPreparePublishPreserveNewest" BeforeTargets="_CopyResolvedFilesToPublishPreserveNewest"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true'">
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(_ResolvedFileToPublishPreserveNewest)"
+        DestinationFiles="@(_ResolvedFileToPublishPreserveNewest->'$(PublishDir)%(RelativePath)')" OnlyIfSourceNewer="true" />
+  </Target>
+  <Target Name="_OpenHarmonyPreparePublishAlways" BeforeTargets="_CopyResolvedFilesToPublishAlways"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true'">
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(_ResolvedFileToPublishAlways)"
+        DestinationFiles="@(_ResolvedFileToPublishAlways->'$(PublishDir)%(RelativePath)')"
+        SkipUnchangedFiles="$(SkipCopyUnchangedFiles)" />
+  </Target>
+  <Target Name="_OpenHarmonyPreparePublishIfDifferent" BeforeTargets="_CopyResolvedFilesToPublishIfDifferent"
+          Condition="'$(_OpenHarmonyPrepareNativeCopy)' == 'true'">
+    <OpenHarmonyPrepareNativeCopy SourceFiles="@(_ResolvedFileToPublishIfDifferent)"
+        DestinationFiles="@(_ResolvedFileToPublishIfDifferent->'$(PublishDir)%(RelativePath)')" SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="_OpenHarmonyCodesignBuildOutputs" AfterTargets="Build"
+          Condition="'$(OpenHarmonyCodesignEnabled)' == 'true' and '$(DesignTimeBuild)' != 'true'">
+    <OpenHarmonyCodesign Directories="$(TargetDir)" CacheDirectory="$(_OpenHarmonySigningCache)"
+                        SigningTool="$(OpenHarmonySigningTool)" />
+  </Target>
+
+  <Target Name="_OpenHarmonyCodesignPublishOutputs" AfterTargets="Publish"
+          Condition="'$(OpenHarmonyCodesignEnabled)' == 'true' and '$(PublishAot)' != 'true'">
+    <OpenHarmonyCodesign Directories="$(PublishDir)" CacheDirectory="$(_OpenHarmonySigningCache)"
+                        SigningTool="$(OpenHarmonySigningTool)" />
+  </Target>
+
+  <!-- NativeAOT replaces the published apphost in an AfterTargets=Publish target.
+       Sign only after that replacement so the final native executable is signed. -->
+  <Target Name="_OpenHarmonyCodesignNativeAotOutputs" AfterTargets="CopyNativeBinary"
+          Condition="'$(OpenHarmonyCodesignEnabled)' == 'true' and '$(PublishAot)' == 'true'">
+    <!-- Signing detached symbols changes their CRC and breaks .gnu_debuglink. -->
+    <OpenHarmonyCodesign Directories="$(PublishDir)" CacheDirectory="$(_OpenHarmonySigningCache)"
+                        ExcludedFiles="$(PublishDir)/$(TargetName)$(NativeBinaryExt)$(NativeSymbolExt)"
+                        SigningTool="$(OpenHarmonySigningTool)" />
+  </Target>
+</Project>

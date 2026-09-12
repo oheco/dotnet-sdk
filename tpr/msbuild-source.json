@@ -1,0 +1,15 @@
+{
+  "name": "msbuild",
+  "version": "18.9.4",
+  "repository": "https://github.com/dotnet/msbuild",
+  "commit": "23b5b8488b4a718a8450da627efd01227e51667b",
+  "vmr_commit": "981be135426277fabd550b94fa14cdaf7271b9c2",
+  "url": "https://codeload.github.com/dotnet/msbuild/tar.gz/23b5b8488b4a718a8450da627efd01227e51667b",
+  "archive": "msbuild-23b5b8488b4a718a8450da627efd01227e51667b.tar.gz",
+  "size": 9654733,
+  "sha256": "31c7366910cfeffa03d224d3e66876458c0ceabe9315c3d9b1dd680be85eed9e",
+  "license": "MIT",
+  "modifications": [
+    "On OpenHarmony only, both NamedPipeUtil implementations use Path.GetTempPath() for Unix socket endpoints; other platforms retain upstream paths."
+  ]
+}
