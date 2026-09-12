@@ -53,12 +53,20 @@ the merged feed manifest. An archived source checkout must set
 The dependency passed a fresh offline build, bootstrap sample and relevant
 communication tests. The released SDK passed full native acceptance.
 
+The combined SDK `10.0.401-ohos.2` and standalone ASP.NET Core
+`10.0.12-ohos.1` are published in the [official catalogue](https://oheco.github.io/oheco-packages/).
+Install with `oo update` and `oo install dotnet-sdk`; the SDK includes both
+.NET and ASP.NET Core runtimes. Native oo 0.6.0 acceptance through the official
+v4 index covered installation into a path with spaces, normal/versioned
+commands, Web and NativeAOT builds/run, switching between SDK ohos.1/ohos.2,
+and removal. See the [current delivery validation](eng/openharmony/VALIDATION.json).
+
 GUI development, workloads and mobile packaging remain outside this delivery.
 The initial SDK 10.0.401-ohos.1 and Runtime 10.0.12-ohos.1 release is preserved;
 the following validation record describes that earlier Runtime/SDK delivery.
 Native oo 0.5.0 verified installation through the official v3 index, normal and
 versioned commands, JIT/R2R/AOT builds and execution, and removal of both
-packages from a directory with spaces. See [the initial-release validation record](eng/openharmony/VALIDATION.json).
+packages from a directory with spaces. See [the initial-release validation record](eng/openharmony/VALIDATION.10.0.401-ohos.1.json).
 
 The runtime/compiler binaries use runtime commit `033589b2981`; the generic
 NativeAOT integration package separately includes the Unix library-path
