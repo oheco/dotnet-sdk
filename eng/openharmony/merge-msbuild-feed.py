@@ -12,6 +12,8 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("sdk_feed", type=Path)
 parser.add_argument("msbuild_packages", type=Path)
 parser.add_argument("output", type=Path)
+parser.add_argument("--dependency-feed", type=Path, required=True)
+parser.add_argument("--dependency-manifest", type=Path, required=True)
 args = parser.parse_args()
 required = {"microsoft.build", "microsoft.build.framework", "microsoft.build.runtime",
             "microsoft.build.tasks.core", "microsoft.build.utilities.core", "microsoft.net.stringtools"}
@@ -57,6 +59,26 @@ for record in records:
     copies.append((source, record["path"]))
 if replaced != required:
     raise SystemExit("Input SDK feed does not contain all expected MSBuild package identities")
+
+# The standalone source snapshot can pin older transitive package versions than
+# the upstream VMR-built MSBuild package. Preserve those exact dependencies too.
+known = {(r["id"].lower(), r["version"]) for r in records}
+dependency_root = args.dependency_feed.resolve(strict=True)
+dependencies = json.loads(args.dependency_manifest.read_text())["packages"]
+added = 0
+for dependency in dependencies:
+    source = (dependency_root / Path(dependency["archive"]).name).resolve(strict=True)
+    if not source.is_relative_to(dependency_root) or source.stat().st_size != dependency["size"] or digest(source) != dependency["sha256"]:
+        raise ValueError("MSBuild dependency integrity check failed: " + dependency["id"])
+    identity = (dependency["id"].lower(), dependency["version"])
+    if identity in known:
+        continue
+    record = dict(dependency, id=identity[0], archive=source.name,
+                  path="packages/" + source.name, origin="msbuild-build-input")
+    records.append(record)
+    copies.append((source, record["path"]))
+    known.add(identity)
+    added += 1
 args.output.mkdir(parents=True, exist_ok=False)
 for source, relative in copies:
     destination = args.output / relative
@@ -69,4 +91,4 @@ ET.SubElement(sources, "add", key="fixed-local", value=str((args.output / "packa
 ET.indent(configuration)
 ET.ElementTree(configuration).write(args.output / "NuGet.Config", encoding="utf-8", xml_declaration=True)
 (args.output / "manifest.json").write_text(json.dumps(records, indent=2) + "\n")
-print(f"Prepared {len(records)} fixed SDK inputs with {len(replaced)} source-built MSBuild packages")
+print(f"Prepared {len(records)} fixed SDK inputs with {len(replaced)} source-built MSBuild packages and {added} added fixed dependencies")

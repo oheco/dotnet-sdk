@@ -34,7 +34,9 @@ export DOTNET_CLI_HOME=/path/to/new-msbuild-cli-home
 export DOTNET_OHOS_MSBUILD_FEED=/path/to/msbuild-feed
 bash eng/openharmony/build-msbuild.sh tpr/msbuild /path/to/new-msbuild.log
 python3 eng/openharmony/merge-msbuild-feed.py /path/to/prepared-sdk-feed \
-  tpr/msbuild/artifacts/packages/Release /path/to/new-sdk-feed
+  tpr/msbuild/artifacts/packages/Release /path/to/new-sdk-feed \
+  --dependency-feed /path/to/msbuild-feed \
+  --dependency-manifest eng/openharmony/nuget-inputs-msbuild.json
 ```
 
 Use the merged feed and a separate empty package cache for the SDK build with
