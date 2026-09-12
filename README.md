@@ -1,3 +1,8 @@
+> HarmonyOS PC ARM64 port of .NET 10 LTS: SDK **10.0.401-ohos.1**, including
+> Runtime **10.0.12**, native C# builds, JIT, ReadyToRun and NativeAOT.
+> See the [installation and release notes](https://github.com/oheco/dotnet-sdk/releases/tag/v10.0.401-ohos.1)
+> and [source build instructions](README.openharmony.md).
+
 ## Welcome to dotnet sdk
 
 This repository contains core functionality needed to create .NET projects that are shared between Visual Studio and the [.NET CLI](https://learn.microsoft.com/dotnet/core/tools/).

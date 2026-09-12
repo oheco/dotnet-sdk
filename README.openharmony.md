@@ -44,8 +44,17 @@ its fixed Linux SDK 10.0.302. The six patched MSBuild packages retain the
 upstream 18.9.4 identity; their contents and source provenance are recorded in
 the merged feed manifest. An archived source checkout must set
 `DOTNET_OHOS_SOURCE_COMMIT` to the SDK commit containing its vendored source.
-The dependency build and native acceptance are still under validation.
+The dependency passed a fresh offline build, bootstrap sample and relevant
+communication tests. The released SDK passed full native acceptance.
 
 GUI development, workloads, mobile packaging and ASP.NET Core are outside
-this delivery. Native SDK acceptance and formal release installation are
-still in progress; compilation alone is not release acceptance.
+this delivery. SDK 10.0.401-ohos.1 and Runtime 10.0.12-ohos.1 are published.
+Native oo 0.5.0 verified installation through the official v3 index, normal and
+versioned commands, JIT/R2R/AOT builds and execution, and removal of both
+packages from a directory with spaces. See [the final validation record](eng/openharmony/VALIDATION.json).
+
+The runtime/compiler binaries use runtime commit `033589b2981`; the generic
+NativeAOT integration package separately includes the Unix library-path
+quoting fix from `8b7bf48c679`. The Release build-kit explains the fixed-input
+reproduction sequence. SDK archives use GNU long-link records, verified with
+native tar. NativeAOT succeeds when the SDK installation path contains spaces.
