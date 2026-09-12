@@ -3,6 +3,11 @@
   <UsingTask TaskName="OpenHarmonyPrepareNativeCopy" AssemblyFile="$(MicrosoftNETBuildTasksAssembly)" />
 
   <PropertyGroup>
+    <!-- The native HarmonyOS LLVM linker does not include zlib compression.
+         Keep debug symbols uncompressed unless the project explicitly opts in. -->
+    <CompressSymbols Condition="'$(CompressSymbols)' == '' and
+      $([System.Runtime.InteropServices.RuntimeInformation]::RuntimeIdentifier.StartsWith('openharmony-')) and
+      ('$(RuntimeIdentifier)' == '' or $(RuntimeIdentifier.StartsWith('openharmony-')))">false</CompressSymbols>
     <!-- Cross builds can opt in with an explicitly configured signing tool. -->
     <OpenHarmonyCodesignEnabled Condition="'$(OpenHarmonyCodesignEnabled)' == '' and
       $([System.Runtime.InteropServices.RuntimeInformation]::RuntimeIdentifier.StartsWith('openharmony-')) and
@@ -11,6 +16,19 @@
     <_OpenHarmonySigningCache>$(IntermediateOutputPath)openharmony-signing</_OpenHarmonySigningCache>
     <_OpenHarmonyPrepareNativeCopy Condition="$([System.Runtime.InteropServices.RuntimeInformation]::RuntimeIdentifier.StartsWith('openharmony-'))">true</_OpenHarmonyPrepareNativeCopy>
   </PropertyGroup>
+
+  <!-- NativeAOT filters the CoreCLR publish assets. Its statically linked shims
+       still need the bundled ICU/OpenSSL libraries beside the executable. -->
+  <Target Name="_OpenHarmonyNativeAotDependencies" AfterTargets="ComputeResolvedFilesToPublishList"
+          Condition="'$(PublishAot)' == 'true' and $(RuntimeIdentifier.StartsWith('openharmony-'))">
+    <ItemGroup>
+      <_OpenHarmonyAotDependency Include="$(IlcFrameworkNativePath)libicu*.so.*;$(IlcFrameworkNativePath)libcrypto.so.*;$(IlcFrameworkNativePath)libssl.so.*;$(IlcFrameworkNativePath)libc++_shared.so" />
+      <ResolvedFileToPublish Include="@(_OpenHarmonyAotDependency)">
+        <RelativePath>%(Filename)%(Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
 
   <!-- Preserve the normal copy decisions, but replace executed native inodes
        before copying. These hooks do not change System.IO.File.Copy semantics.

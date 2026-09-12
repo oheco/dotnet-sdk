@@ -1,0 +1,3081 @@
+{
+  "format": 1,
+  "packages": [
+    {
+      "id": "Argon",
+      "version": "0.26.0",
+      "archive": "argon/0.26.0/argon.0.26.0.nupkg",
+      "size": 1726355,
+      "sha256": "d0dac636462ec57f3be7150622ea1595d952e92cbe89581f4cb649af4ff75859",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "AwesomeAssertions",
+      "version": "8.0.2",
+      "archive": "awesomeassertions/8.0.2/awesomeassertions.8.0.2.nupkg",
+      "size": 1692269,
+      "sha256": "be96cbb6d9769ab4c5d88e4f1063db02e3163a9d4980c760ad78d2a0f9496144",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "BenchmarkDotNet",
+      "version": "0.13.12",
+      "archive": "benchmarkdotnet/0.13.12/benchmarkdotnet.0.13.12.nupkg",
+      "size": 1396093,
+      "sha256": "5eaee19cd78ed416c95489640ca132b09160c67e3a782be9ba3850299ac86edd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "BenchmarkDotNet.Annotations",
+      "version": "0.13.12",
+      "archive": "benchmarkdotnet.annotations/0.13.12/benchmarkdotnet.annotations.0.13.12.nupkg",
+      "size": 77356,
+      "sha256": "bf70d16f6cb47dba7dbfc50697db28bb61cac7bf127a62b450a87eaddb2ebf6b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "BenchmarkDotNet.Diagnostics.Windows",
+      "version": "0.13.12",
+      "archive": "benchmarkdotnet.diagnostics.windows/0.13.12/benchmarkdotnet.diagnostics.windows.0.13.12.nupkg",
+      "size": 58461,
+      "sha256": "d99b13445355b526746cb013fff6898026bb493982852a3ee36360f34f7a81e2",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Castle.Core",
+      "version": "5.1.1",
+      "archive": "castle.core/5.1.1/castle.core.5.1.1.nupkg",
+      "size": 800128,
+      "sha256": "a1591007e38ded2e90dbb3a15eb4cb6b14cbd24581e7c1d968516e8b0e224eb1",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "CommandLineParser",
+      "version": "2.9.1",
+      "archive": "commandlineparser/2.9.1/commandlineparser.2.9.1.nupkg",
+      "size": 496069,
+      "sha256": "02953dcb5c97eb475a4a33e4dca60305e27b5d9072296f21b1ef4d45919c8dea",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "file",
+        "value": "License.md"
+      }
+    },
+    {
+      "id": "DiffEngine",
+      "version": "11.3.0",
+      "archive": "diffengine/11.3.0/diffengine.11.3.0.nupkg",
+      "size": 962874,
+      "sha256": "6996cb6b0b4ecad6ca3eb1760d0ddd64ec20c63b9a1ac5ca0b42f09a5030e95d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "DiffEngine",
+      "version": "15.9.0",
+      "archive": "diffengine/15.9.0/diffengine.15.9.0.nupkg",
+      "size": 611279,
+      "sha256": "77fcad607bc5909f901e1864322a745d6cc579243133199e43412cc29a9d6748",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "DiffPlex",
+      "version": "1.7.2",
+      "archive": "diffplex/1.7.2/diffplex.1.7.2.nupkg",
+      "size": 92255,
+      "sha256": "56c9fcd5db8098f20f911e348796c4cfb860b45e4ab799c000685066b41bab11",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "EmptyFiles",
+      "version": "4.4.0",
+      "archive": "emptyfiles/4.4.0/emptyfiles.4.4.0.nupkg",
+      "size": 464429,
+      "sha256": "d9e8fa6584abfca4b3fcc9a1d116af8c830cc87cf34d5b728ddf676d6d7b2306",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "EmptyFiles",
+      "version": "8.7.1",
+      "archive": "emptyfiles/8.7.1/emptyfiles.8.7.1.nupkg",
+      "size": 506724,
+      "sha256": "202cc33cccd798a0dafcdcd70f33807ec762b52951b46c46fb06bdc4fa09f1bc",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "FakeItEasy",
+      "version": "8.1.0",
+      "archive": "fakeiteasy/8.1.0/fakeiteasy.8.1.0.nupkg",
+      "size": 791197,
+      "sha256": "b58840b1a6bddbd06b640b7eef6368731e498090353b27412b596d1255dca824",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Gee.External.Capstone",
+      "version": "2.3.0",
+      "archive": "gee.external.capstone/2.3.0/gee.external.capstone.2.3.0.nupkg",
+      "size": 8145352,
+      "sha256": "c1d613fc5f122cbef638856ffd0fe17cb31f86558c9e10cd0935b1fb05a53e85",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Humanizer.Core",
+      "version": "2.14.1",
+      "archive": "humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg",
+      "size": 538179,
+      "sha256": "117be88dd74fbbef492a0386f4d4908144df5aad51a4e630eda7710cf28327aa",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Iced",
+      "version": "1.17.0",
+      "archive": "iced/1.17.0/iced.1.17.0.nupkg",
+      "size": 2106811,
+      "sha256": "ebfe44e6fe66a921bbca2136cc750285965e0b8ecd4602f34050f8fbb6ea29a5",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "MicroBuild.Core.Sentinel",
+      "version": "1.0.0",
+      "archive": "microbuild.core.sentinel/1.0.0/microbuild.core.sentinel.1.0.0.nupkg",
+      "size": 2952,
+      "sha256": "11f936245a242200c7c3c1b7b12b01b36f7dd1a742088b40a0f8aae94ac7b30c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "url": ""
+      }
+    },
+    {
+      "id": "Microsoft.ApplicationInsights",
+      "version": "2.23.0",
+      "archive": "microsoft.applicationinsights/2.23.0/microsoft.applicationinsights.2.23.0.nupkg",
+      "size": 1737910,
+      "sha256": "e6c7f76e0ec26598c7b1e2be1777e839c84486655e8a878fc4c655bd2e918dbd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.AspNetCore.App.Runtime.win-x64",
+      "version": "10.0.8",
+      "archive": "microsoft.aspnetcore.app.runtime.win-x64/10.0.8/microsoft.aspnetcore.app.runtime.win-x64.10.0.8.nupkg",
+      "size": 12754879,
+      "sha256": "5341d3f038cf3e7044807f48cff49cf6b95de8f5aa63e5da7f0bd43df36dbfdd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.AspNetCore.App.Runtime.win-x86",
+      "version": "10.0.8",
+      "archive": "microsoft.aspnetcore.app.runtime.win-x86/10.0.8/microsoft.aspnetcore.app.runtime.win-x86.10.0.8.nupkg",
+      "size": 12199809,
+      "sha256": "ed4b67dd45cbe737b9d4b6ad79b806a4bcc4e1a76cde266875953c9728affb07",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "1.1.0",
+      "archive": "microsoft.bcl.asyncinterfaces/1.1.0/microsoft.bcl.asyncinterfaces.1.1.0.nupkg",
+      "size": 92985,
+      "sha256": "4185688dfa9264a6c5f0fe83fda69c7f17ee98c691503f5210441bcf0ef705b7",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "10.0.8",
+      "archive": "microsoft.bcl.asyncinterfaces/10.0.8/microsoft.bcl.asyncinterfaces.10.0.8.nupkg",
+      "size": 99063,
+      "sha256": "c7c1c2eb869bacdf419a59d806cc04cc70a50c459c1c09ec91e68c5fd37cfd04",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "6.0.0",
+      "archive": "microsoft.bcl.asyncinterfaces/6.0.0/microsoft.bcl.asyncinterfaces.6.0.0.nupkg",
+      "size": 76354,
+      "sha256": "e3df87fe2170a7e01f0880af59caa8f6eb380b3c40a4f282dfb43912aaf0f895",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "8.0.0",
+      "archive": "microsoft.bcl.asyncinterfaces/8.0.0/microsoft.bcl.asyncinterfaces.8.0.0.nupkg",
+      "size": 99740,
+      "sha256": "f5a5a68b03092ab2abf68843d4a4aea25dfbcbe8dd0f13c625cb779b6fc1927c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "9.0.0-rc.2.24473.5",
+      "archive": "microsoft.bcl.asyncinterfaces/9.0.0-rc.2.24473.5/microsoft.bcl.asyncinterfaces.9.0.0-rc.2.24473.5.nupkg",
+      "size": 98023,
+      "sha256": "702de19253cda3437497ef47b0e7c4ffe1376f03089032ce54abb5121d2c8e61",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "9.0.11",
+      "archive": "microsoft.bcl.asyncinterfaces/9.0.11/microsoft.bcl.asyncinterfaces.9.0.11.nupkg",
+      "size": 98191,
+      "sha256": "8fd0293166b453efa8a5b4a0a1a83a49eaf28212aa447e4f9b211ebb20546a85",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.AsyncInterfaces",
+      "version": "9.0.2",
+      "archive": "microsoft.bcl.asyncinterfaces/9.0.2/microsoft.bcl.asyncinterfaces.9.0.2.nupkg",
+      "size": 98031,
+      "sha256": "0fe311e51cf19fe6853d525617cde97347535a741eb3ae7cc413386cf67a1cf7",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.Cryptography",
+      "version": "10.0.8",
+      "archive": "microsoft.bcl.cryptography/10.0.8/microsoft.bcl.cryptography.10.0.8.nupkg",
+      "size": 769087,
+      "sha256": "c69b4f6403cdacebf7c07cda71ec46fbf97fc57d611456f6240639516c2b8fc0",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Bcl.HashCode",
+      "version": "6.0.0",
+      "archive": "microsoft.bcl.hashcode/6.0.0/microsoft.bcl.hashcode.6.0.0.nupkg",
+      "size": 91879,
+      "sha256": "f3b9b2bab0bf8cc717d5fdf6d7aee3ec54e36d9e85bd41347acae161319cbd6b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build",
+      "version": "14.3.0",
+      "archive": "microsoft.build/14.3.0/microsoft.build.14.3.0.nupkg",
+      "size": 655357,
+      "sha256": "3f836ccd8975554ebeda1581eb863b272d66c3f1c0d24ba5e620f68eeeb055fd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.Build",
+      "version": "16.11.0",
+      "archive": "microsoft.build/16.11.0/microsoft.build.16.11.0.nupkg",
+      "size": 2819878,
+      "sha256": "49e5933adf70e244bdf64d627d787fdec120fa7c5f4c598c12d6892b2a6f7a90",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build",
+      "version": "18.8.0-preview-26276-02",
+      "archive": "microsoft.build/18.8.0-preview-26276-02/microsoft.build.18.8.0-preview-26276-02.nupkg",
+      "size": 5347590,
+      "sha256": "d980f45c6077b9a91f98ae99b77b0aa8bb5e963a241535914cf9fdff39260125",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Framework",
+      "version": "14.3.0",
+      "archive": "microsoft.build.framework/14.3.0/microsoft.build.framework.14.3.0.nupkg",
+      "size": 81145,
+      "sha256": "cd2995bb9bbfa1e7395d51ec6f0be24798e8213202e6e6465977e4d54e0cfe64",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Framework",
+      "version": "15.5.180",
+      "archive": "microsoft.build.framework/15.5.180/microsoft.build.framework.15.5.180.nupkg",
+      "size": 129646,
+      "sha256": "5f24c9ded9febce739ac7e0fbb1d4c8ecc1189ae9e8b96ea4d7dc6108e1a9e18",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Framework",
+      "version": "16.11.0",
+      "archive": "microsoft.build.framework/16.11.0/microsoft.build.framework.16.11.0.nupkg",
+      "size": 241770,
+      "sha256": "b241d93d63be81a116874cba84f12fe96114ddc6d77d89429c388b260dd72e90",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Framework",
+      "version": "17.14.28",
+      "archive": "microsoft.build.framework/17.14.28/microsoft.build.framework.17.14.28.nupkg",
+      "size": 1160577,
+      "sha256": "ed1cc4c888a9ba669fc0b5b5c4dd6adb7d75e0d69f1ba3d3d3e4400c494db223",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Framework",
+      "version": "18.8.0-preview-26276-02",
+      "archive": "microsoft.build.framework/18.8.0-preview-26276-02/microsoft.build.framework.18.8.0-preview-26276-02.nupkg",
+      "size": 3839511,
+      "sha256": "380b7cbea893258fda3ee82a9af510bec1381bd14b4a938368e14e5205826bda",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build.NuGetSdkResolver",
+      "version": "7.9.0-rc.37",
+      "archive": "microsoft.build.nugetsdkresolver/7.9.0-rc.37/microsoft.build.nugetsdkresolver.7.9.0-rc.37.nupkg",
+      "size": 107147,
+      "sha256": "850d2d037dd5ad772a2bb1612719d906af60d4a7c13337abbc095680a605de08",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Tasks.Core",
+      "version": "18.8.0-preview-26276-02",
+      "archive": "microsoft.build.tasks.core/18.8.0-preview-26276-02/microsoft.build.tasks.core.18.8.0-preview-26276-02.nupkg",
+      "size": 2289614,
+      "sha256": "fe26565aaa9f237f99f59134841186403e629ded13d35e8cb322e7bff7829206",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Utilities.Core",
+      "version": "14.3.0",
+      "archive": "microsoft.build.utilities.core/14.3.0/microsoft.build.utilities.core.14.3.0.nupkg",
+      "size": 187303,
+      "sha256": "6b064d47276c20ba48f31b40ff323c59b1d30ee41cab6db49edf8ad0adb6a10c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Utilities.Core",
+      "version": "15.5.180",
+      "archive": "microsoft.build.utilities.core/15.5.180/microsoft.build.utilities.core.15.5.180.nupkg",
+      "size": 463345,
+      "sha256": "609896d9b2dfae4385bd0f2da160c6c8fa1dae68e5224b215b28b18715948b30",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Utilities.Core",
+      "version": "17.14.28",
+      "archive": "microsoft.build.utilities.core/17.14.28/microsoft.build.utilities.core.17.14.28.nupkg",
+      "size": 905208,
+      "sha256": "5457cef94a724e9c365ffaa2082382633bcc2eebbb07e5d5492a496502e43f35",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Build.Utilities.Core",
+      "version": "18.8.0-preview-26276-02",
+      "archive": "microsoft.build.utilities.core/18.8.0-preview-26276-02/microsoft.build.utilities.core.18.8.0-preview-26276-02.nupkg",
+      "size": 647968,
+      "sha256": "2bceb1d0d9ef610370a560c45b94fd781dc22a6c39a51171aec61dc843e0c774",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.BuildXL.Native",
+      "version": "0.1.0-20241105.3",
+      "archive": "microsoft.buildxl.native/0.1.0-20241105.3/microsoft.buildxl.native.0.1.0-20241105.3.nupkg",
+      "size": 3617967,
+      "sha256": "8bba36017500cb3e8cdceb83a795915ae9f6b2f11b49c8d3e7d34ced0f975a80",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "url": ""
+      }
+    },
+    {
+      "id": "Microsoft.BuildXL.Processes",
+      "version": "0.1.0-20241105.3",
+      "archive": "microsoft.buildxl.processes/0.1.0-20241105.3/microsoft.buildxl.processes.0.1.0-20241105.3.nupkg",
+      "size": 5965859,
+      "sha256": "95fab4bd49faa6d1b57b834557302c03869f3bb6666d19e7a6bfefd8558d722d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "url": ""
+      }
+    },
+    {
+      "id": "Microsoft.BuildXL.Utilities.Core",
+      "version": "0.1.0-20241105.3",
+      "archive": "microsoft.buildxl.utilities.core/0.1.0-20241105.3/microsoft.buildxl.utilities.core.0.1.0-20241105.3.nupkg",
+      "size": 3193723,
+      "sha256": "84f82017ea50634c543323bb1c086b350612eae7ec0cfa1f36ab8eec2e880095",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "url": ""
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Analyzer.Testing",
+      "version": "1.1.2",
+      "archive": "microsoft.codeanalysis.analyzer.testing/1.1.2/microsoft.codeanalysis.analyzer.testing.1.1.2.nupkg",
+      "size": 1561613,
+      "sha256": "35e3b37cdffd5a25ff1ac662710fa80d4b8fad982bc5370ff30ee4b3300a69a6",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Analyzers",
+      "version": "3.11.0",
+      "archive": "microsoft.codeanalysis.analyzers/3.11.0/microsoft.codeanalysis.analyzers.3.11.0.nupkg",
+      "size": 1605871,
+      "sha256": "850da5e84e8f3b89bb8be66c7c5944c7ef7752c2cfa38218df00e4346d75fd2c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.BannedApiAnalyzers",
+      "version": "3.3.4",
+      "archive": "microsoft.codeanalysis.bannedapianalyzers/3.3.4/microsoft.codeanalysis.bannedapianalyzers.3.3.4.nupkg",
+      "size": 637301,
+      "sha256": "60f4c74d9f3144f30b00375c55844efdeab73bdb998ec0fe3ac191644fb4f9ef",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.CodeFix.Testing",
+      "version": "1.1.2",
+      "archive": "microsoft.codeanalysis.codefix.testing/1.1.2/microsoft.codeanalysis.codefix.testing.1.1.2.nupkg",
+      "size": 396768,
+      "sha256": "ea5eedbd4d7d26835ffce5f129649eca9075df2f4f06da340f0aad987514197a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Collections",
+      "version": "5.0.0-1.25277.114",
+      "archive": "microsoft.codeanalysis.collections/5.0.0-1.25277.114/microsoft.codeanalysis.collections.5.0.0-1.25277.114.nupkg",
+      "size": 315834,
+      "sha256": "7956c4437110b99eb70887c1ed3dbb5c08c062b8b9f5f4079dccfdd638cd47fd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Common",
+      "version": "4.12.0",
+      "archive": "microsoft.codeanalysis.common/4.12.0/microsoft.codeanalysis.common.4.12.0.nupkg",
+      "size": 7120597,
+      "sha256": "9a6fce286df33cb01e4d5199b6e2f1486fa3a500ce7219f5a321ea041256d87a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Contracts",
+      "version": "5.0.0-1.25277.114",
+      "archive": "microsoft.codeanalysis.contracts/5.0.0-1.25277.114/microsoft.codeanalysis.contracts.5.0.0-1.25277.114.nupkg",
+      "size": 92175,
+      "sha256": "98537aac10ab05c3005e1711e17c8a0fbe0c5e4edc30098fed9daeaa34f7a290",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.CSharp",
+      "version": "4.12.0",
+      "archive": "microsoft.codeanalysis.csharp/4.12.0/microsoft.codeanalysis.csharp.4.12.0.nupkg",
+      "size": 16985075,
+      "sha256": "9b58b5439a7212ae25028623344f5b6848d3a651fcf9b5f1e70480f9e3267a19",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "version": "1.1.2",
+      "archive": "microsoft.codeanalysis.csharp.analyzer.testing/1.1.2/microsoft.codeanalysis.csharp.analyzer.testing.1.1.2.nupkg",
+      "size": 138546,
+      "sha256": "013e40829986f7267c12315ddb7665599c02d04ed2bf33707bcdf201aca9df00",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "version": "1.1.2",
+      "archive": "microsoft.codeanalysis.csharp.codefix.testing/1.1.2/microsoft.codeanalysis.csharp.codefix.testing.1.1.2.nupkg",
+      "size": 140690,
+      "sha256": "689c816c9c1ba2962d018f2978208d047aea9d5f77594faee0ad86d9f4ef3964",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "version": "4.12.0",
+      "archive": "microsoft.codeanalysis.csharp.workspaces/4.12.0/microsoft.codeanalysis.csharp.workspaces.4.12.0.nupkg",
+      "size": 1998263,
+      "sha256": "1cfbf037b9340d4dc09f55091872b15e107bb3c6b73b94fd7c3b7e296275268c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.PooledObjects",
+      "version": "5.0.0-1.25277.114",
+      "archive": "microsoft.codeanalysis.pooledobjects/5.0.0-1.25277.114/microsoft.codeanalysis.pooledobjects.5.0.0-1.25277.114.nupkg",
+      "size": 50233,
+      "sha256": "b872225038cf0810f0c184f9204c2e4bc8a57ccd0f1265ca0b98efafdd9f3334",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "version": "1.0.1",
+      "archive": "microsoft.codeanalysis.workspaces.common/1.0.1/microsoft.codeanalysis.workspaces.common.1.0.1.nupkg",
+      "size": 2481170,
+      "sha256": "fd260f92ae4b84ea045a2fab701643c902f653471093662bca4349383ad12d5b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=529443"
+      }
+    },
+    {
+      "id": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "version": "4.12.0",
+      "archive": "microsoft.codeanalysis.workspaces.common/4.12.0/microsoft.codeanalysis.workspaces.common.4.12.0.nupkg",
+      "size": 8384602,
+      "sha256": "db21122fec0b0e92eacff4cc46086de850e1572d2631b7ccdcccab42c24449fa",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.CSharp",
+      "version": "4.7.0",
+      "archive": "microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg",
+      "size": 627100,
+      "sha256": "127927bf646c145ebc9443ddadfe4cf81a55d641e82d3551029294c2e93fa63d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Diagnostics.NETCore.Client",
+      "version": "0.2.251802",
+      "archive": "microsoft.diagnostics.netcore.client/0.2.251802/microsoft.diagnostics.netcore.client.0.2.251802.nupkg",
+      "size": 146459,
+      "sha256": "f591f8aeb7c00b324fe6889aac35b8703da7733bf548d819af8196d49f619540",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Diagnostics.Runtime",
+      "version": "2.2.332302",
+      "archive": "microsoft.diagnostics.runtime/2.2.332302/microsoft.diagnostics.runtime.2.2.332302.nupkg",
+      "size": 747281,
+      "sha256": "e51f712b4a30644857b2e72a3ca9cf6938b08570672e8f762f6018ec88f2c4d8",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Diagnostics.Tracing.TraceEvent",
+      "version": "3.0.2",
+      "archive": "microsoft.diagnostics.tracing.traceevent/3.0.2/microsoft.diagnostics.tracing.traceevent.3.0.2.nupkg",
+      "size": 7528517,
+      "sha256": "047ba24c4900efaffd40847d306f12061744c6028514677fff64635fc5775c93",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DiaSymReader",
+      "version": "2.0.0",
+      "archive": "microsoft.diasymreader/2.0.0/microsoft.diasymreader.2.0.0.nupkg",
+      "size": 93176,
+      "sha256": "f21a2d66687c45be90ea80fd31e6fbe12bc075b0e8dfd63fd66f21e371c78e3c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.Arcade.Sdk",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.arcade.sdk/10.0.0-beta.26367.6/microsoft.dotnet.arcade.sdk.10.0.0-beta.26367.6.nupkg",
+      "size": 4591743,
+      "sha256": "ac9a5bc46f8297c670b108b73d49647e48087a3de0e34c8d251b2a106f9c44fc",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.Build.Tasks.VisualStudio",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.build.tasks.visualstudio/10.0.0-beta.26367.6/microsoft.dotnet.build.tasks.visualstudio.10.0.0-beta.26367.6.nupkg",
+      "size": 308069,
+      "sha256": "cb792de796ee814e3f5c362743eea01810cef4c7ff5a4e57afc07098ec1d0748",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.MacOsPkg.Cli",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.macospkg.cli/10.0.0-beta.26367.6/microsoft.dotnet.macospkg.cli.10.0.0-beta.26367.6.nupkg",
+      "size": 248577,
+      "sha256": "8957a91f6ba6eb9ec0d9643aa937e63c480dc7f1d5c6bb7d147a79294d11b899",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.PlatformAbstractions",
+      "version": "3.1.6",
+      "archive": "microsoft.dotnet.platformabstractions/3.1.6/microsoft.dotnet.platformabstractions.3.1.6.nupkg",
+      "size": 72146,
+      "sha256": "45f336a978aa7626a63e45ebe080e435cd0865217d89366fe2ea2efc4ef3352d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "file",
+        "value": "LICENSE.TXT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.SignTool",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.signtool/10.0.0-beta.26367.6/microsoft.dotnet.signtool.10.0.0-beta.26367.6.nupkg",
+      "size": 2605904,
+      "sha256": "0997221a2c14a8e01a7bb817acfeafa355233c1d541c7dcf7c9e34b7ccb6e944",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.Tar",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.tar/10.0.0-beta.26367.6/microsoft.dotnet.tar.10.0.0-beta.26367.6.nupkg",
+      "size": 20623,
+      "sha256": "2a78f1709b7f8c093e2b7c1d499a9728245c02030fd54145625d272f1f331aec",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.XliffTasks",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.xlifftasks/10.0.0-beta.26367.6/microsoft.dotnet.xlifftasks.10.0.0-beta.26367.6.nupkg",
+      "size": 119285,
+      "sha256": "1a0c7ca506b7ecc38971c57ed539c7bbd97a46dc0bd3423ae1c067eec5fa7f92",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.DotNet.XUnitV3Extensions",
+      "version": "10.0.0-beta.26367.6",
+      "archive": "microsoft.dotnet.xunitv3extensions/10.0.0-beta.26367.6/microsoft.dotnet.xunitv3extensions.10.0.0-beta.26367.6.nupkg",
+      "size": 90370,
+      "sha256": "d039ec75db111a77bb1e6b6924c244038f6bc4cae9f8bad1e8233298915a8724",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Configuration",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.configuration/2.1.1/microsoft.extensions.configuration.2.1.1.nupkg",
+      "size": 41878,
+      "sha256": "a673ba19d9a73c9f03e2998ca64c7080ce06820c06776524fb9b3a39f2678408",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Configuration.Abstractions",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.configuration.abstractions/2.1.1/microsoft.extensions.configuration.abstractions.2.1.1.nupkg",
+      "size": 37935,
+      "sha256": "dc374770d9b2f8929607843c8b1cc4e0dfe1500bf1da8e189586a5e118b08b2c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Configuration.Binder",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.configuration.binder/2.1.1/microsoft.extensions.configuration.binder.2.1.1.nupkg",
+      "size": 36205,
+      "sha256": "1557406bcf0f2c06d65d39c4a1aec0552682f4012343ae8ba3176d2799d12159",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.dependencyinjection.abstractions/2.1.1/microsoft.extensions.dependencyinjection.abstractions.2.1.1.nupkg",
+      "size": 47273,
+      "sha256": "04c534d109a686d1f78cfe5c7a9267a13af1acf11259e0d4d22e54ac8a48c066",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.DependencyModel",
+      "version": "6.0.2",
+      "archive": "microsoft.extensions.dependencymodel/6.0.2/microsoft.extensions.dependencymodel.6.0.2.nupkg",
+      "size": 122854,
+      "sha256": "59533f82c84689ed49f6ae65dd8591ceb3d662556f5fa21223e4a254ca0fa79a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.FileSystemGlobbing",
+      "version": "6.0.0",
+      "archive": "microsoft.extensions.filesystemglobbing/6.0.0/microsoft.extensions.filesystemglobbing.6.0.0.nupkg",
+      "size": 113999,
+      "sha256": "4405878e491fbc6a63738f50d2425b6725e053a504abf109d23e79eec8f6fe25",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Logging",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.logging/2.1.1/microsoft.extensions.logging.2.1.1.nupkg",
+      "size": 42526,
+      "sha256": "1e71019808707816a5080797f8a6789042f71971150c183a52ae07e0b279ea8a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Logging.Abstractions",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.logging.abstractions/2.1.1/microsoft.extensions.logging.abstractions.2.1.1.nupkg",
+      "size": 51616,
+      "sha256": "4f36d8833e047a6ad828732f07d1d60e4166ab40644deb4a3d4c01a581e4f7e9",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Options",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.options/2.1.1/microsoft.extensions.options.2.1.1.nupkg",
+      "size": 47762,
+      "sha256": "7423c0e7a5aff5c2eecfbdb43e655b936a1775ad6df5948094ff3f7250d4f771",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Extensions.Primitives",
+      "version": "2.1.1",
+      "archive": "microsoft.extensions.primitives/2.1.1/microsoft.extensions.primitives.2.1.1.nupkg",
+      "size": 46663,
+      "sha256": "9dbbb639e40659e1bc40aa6800ec4843c68fcc36d61e06f32d7879e71a9e790c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/aspnet/Home/2.0.0/LICENSE.txt"
+      }
+    },
+    {
+      "id": "Microsoft.IO.Redist",
+      "version": "6.0.1",
+      "archive": "microsoft.io.redist/6.0.1/microsoft.io.redist.6.0.1.nupkg",
+      "size": 123814,
+      "sha256": "21a013032d4cfcc1014e2774990893ac78f8693c28d8f382b5c93149b2dcde55",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.IO.Redist",
+      "version": "6.1.0",
+      "archive": "microsoft.io.redist/6.1.0/microsoft.io.redist.6.1.0.nupkg",
+      "size": 115688,
+      "sha256": "74f2a8b9698622178a6b8314fe0a01a65c202c96d2d44876fa35d9435d3db1a9",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Net.Compilers.Toolset",
+      "version": "5.9.0-1.26319.6",
+      "archive": "microsoft.net.compilers.toolset/5.9.0-1.26319.6/microsoft.net.compilers.toolset.5.9.0-1.26319.6.nupkg",
+      "size": 21900078,
+      "sha256": "38be69e32b473f65986a15722ada5025a59224827091b235c70dbcbc1d443aae",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NET.ILLink.Tasks",
+      "version": "10.0.8",
+      "archive": "microsoft.net.illink.tasks/10.0.8/microsoft.net.illink.tasks.10.0.8.nupkg",
+      "size": 1530143,
+      "sha256": "204cb4d94a7f5f33f36dc42d11e3f6966b04e858e249f5464b6858402c163195",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NET.StringTools",
+      "version": "1.0.0",
+      "archive": "microsoft.net.stringtools/1.0.0/microsoft.net.stringtools.1.0.0.nupkg",
+      "size": 90506,
+      "sha256": "b269b09b55db2ac93448f5bbe2b776b83b9b5b37dded185f4a43ebf77d9cca1b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NET.StringTools",
+      "version": "17.14.28",
+      "archive": "microsoft.net.stringtools/17.14.28/microsoft.net.stringtools.17.14.28.nupkg",
+      "size": 177521,
+      "sha256": "533444caf0f1922390e1c10e4395028e4c171ab95d20309c6de7c40933c68d72",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NET.StringTools",
+      "version": "18.8.0-preview-26276-02",
+      "archive": "microsoft.net.stringtools/18.8.0-preview-26276-02/microsoft.net.stringtools.18.8.0-preview-26276-02.nupkg",
+      "size": 167544,
+      "sha256": "2e61c043df09bedcd8d08b481760b449339f1b637306568e8b318d700bccfa32",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.App.Host.win-x64",
+      "version": "10.0.8",
+      "archive": "microsoft.netcore.app.host.win-x64/10.0.8/microsoft.netcore.app.host.win-x64.10.0.8.nupkg",
+      "size": 5782639,
+      "sha256": "68f127c671a0e32ed7d70684d27eb1fbc292503e5c33c561e09f0b862415747c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.App.Host.win-x86",
+      "version": "10.0.8",
+      "archive": "microsoft.netcore.app.host.win-x86/10.0.8/microsoft.netcore.app.host.win-x86.10.0.8.nupkg",
+      "size": 4906118,
+      "sha256": "78d4ee238a8dc48dbb13beb6b673d9032cf6aab0a05758666b0badc70ac72ac7",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.App.Runtime.win-x64",
+      "version": "10.0.8",
+      "archive": "microsoft.netcore.app.runtime.win-x64/10.0.8/microsoft.netcore.app.runtime.win-x64.10.0.8.nupkg",
+      "size": 39563665,
+      "sha256": "bacac504b1398a5e60b64204e32143c1d2f0ca56fb1127d8157e4d20ac880411",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.App.Runtime.win-x86",
+      "version": "10.0.8",
+      "archive": "microsoft.netcore.app.runtime.win-x86/10.0.8/microsoft.netcore.app.runtime.win-x86.10.0.8.nupkg",
+      "size": 37034176,
+      "sha256": "895042be95b1339c74885892b89db1b9c5f38c18b0b7bfd755fe1f3961ac5221",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.Platforms",
+      "version": "1.0.1",
+      "archive": "microsoft.netcore.platforms/1.0.1/microsoft.netcore.platforms.1.0.1.nupkg",
+      "size": 17876,
+      "sha256": "999a2d94666ab6ba834a806b661b3115ee9fb8ebf9fc1228d30d99db1d335405",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.Platforms",
+      "version": "1.1.0",
+      "archive": "microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg",
+      "size": 17960,
+      "sha256": "15e338d24b5c39b4099389cc612841eb51ff13c07bb4829f97d39b27420e7023",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.Platforms",
+      "version": "3.1.0",
+      "archive": "microsoft.netcore.platforms/3.1.0/microsoft.netcore.platforms.3.1.0.nupkg",
+      "size": 29544,
+      "sha256": "727ca0762b6c11a53ce9b9d8b48b6134cca6007a9a4ffb1ff468f2921cea81bd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.Platforms",
+      "version": "3.1.4",
+      "archive": "microsoft.netcore.platforms/3.1.4/microsoft.netcore.platforms.3.1.4.nupkg",
+      "size": 31283,
+      "sha256": "559d5b51379a188a1788d092cc230d42a1eec36d0ecf1824a9258dcbf1f15782",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETCore.Platforms",
+      "version": "5.0.0",
+      "archive": "microsoft.netcore.platforms/5.0.0/microsoft.netcore.platforms.5.0.0.nupkg",
+      "size": 39826,
+      "sha256": "2c8720d52b437102cf380069e0945722cf37eddef3d226bafbefb7485de39757",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies",
+      "version": "1.0.0",
+      "archive": "microsoft.netframework.referenceassemblies/1.0.0/microsoft.netframework.referenceassemblies.1.0.0.nupkg",
+      "size": 20946,
+      "sha256": "e9f68f4388da158dce186564de564a5be0c465a20e059ff01ea6e20d3b114759",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies",
+      "version": "1.0.3",
+      "archive": "microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg",
+      "size": 20961,
+      "sha256": "141a093f90c7645d101ccd312e6f727781c965540eb92a52280f95411a698441",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies.net35",
+      "version": "1.0.3",
+      "archive": "microsoft.netframework.referenceassemblies.net35/1.0.3/microsoft.netframework.referenceassemblies.net35.1.0.3.nupkg",
+      "size": 6852581,
+      "sha256": "b16156111a88670d91a757fbd465fcb4856e034b1a4d523ae2c41a470f3578f9",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies.net45",
+      "version": "1.0.3",
+      "archive": "microsoft.netframework.referenceassemblies.net45/1.0.3/microsoft.netframework.referenceassemblies.net45.1.0.3.nupkg",
+      "size": 19820444,
+      "sha256": "23a9f94ea3e2cb88cd8341af75b811c6fb5cb82516fc696e95ed4620279128e3",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies.net461",
+      "version": "1.0.0",
+      "archive": "microsoft.netframework.referenceassemblies.net461/1.0.0/microsoft.netframework.referenceassemblies.net461.1.0.0.nupkg",
+      "size": 20140577,
+      "sha256": "a12eec50ccca0642e686082a6c8e9e06a6f538f022a47d130d36836818b17303",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies.net472",
+      "version": "1.0.0",
+      "archive": "microsoft.netframework.referenceassemblies.net472/1.0.0/microsoft.netframework.referenceassemblies.net472.1.0.0.nupkg",
+      "size": 20790131,
+      "sha256": "2c8fd79ea19bd03cece40ed92b7bafde024f87c73abcebe3eff8da6e05b611af",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.NETFramework.ReferenceAssemblies.net472",
+      "version": "1.0.3",
+      "archive": "microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg",
+      "size": 20790130,
+      "sha256": "ffa0a5570a39f911399164d0581ffddef99b5e3dfbaa5f220e5ce22969bcf57c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/dotnet/blob/master/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.Signed.Wix",
+      "version": "3.14.1-9323.2545153",
+      "archive": "microsoft.signed.wix/3.14.1-9323.2545153/microsoft.signed.wix.3.14.1-9323.2545153.nupkg",
+      "size": 18792995,
+      "sha256": "147ffe362823597ba40b368a675007e237235530c94303ea97cca13a127370a1",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MS-RL"
+      }
+    },
+    {
+      "id": "Microsoft.TemplateEngine.Tasks",
+      "version": "7.0.120",
+      "archive": "microsoft.templateengine.tasks/7.0.120/microsoft.templateengine.tasks.7.0.120.nupkg",
+      "size": 1961484,
+      "sha256": "09d34fa66122c82edeb331e5b34b08f6b771069f56f3367d71e50c3739f70d2f",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Testing.Extensions.CodeCoverage",
+      "version": "18.0.6",
+      "archive": "microsoft.testing.extensions.codecoverage/18.0.6/microsoft.testing.extensions.codecoverage.18.0.6.nupkg",
+      "size": 15588305,
+      "sha256": "75af79e2617efc36959d25731325f0d9e6031a61acef00b1b1d5f6622463eb7a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "file",
+        "value": "License.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Testing.Extensions.Telemetry",
+      "version": "1.9.1",
+      "archive": "microsoft.testing.extensions.telemetry/1.9.1/microsoft.testing.extensions.telemetry.1.9.1.nupkg",
+      "size": 790201,
+      "sha256": "225ce692a0c2b22265b1b836390fdc4e0b3bd9dcd41d87405aff6301b853656c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Testing.Extensions.TrxReport",
+      "version": "1.9.1",
+      "archive": "microsoft.testing.extensions.trxreport/1.9.1/microsoft.testing.extensions.trxreport.1.9.1.nupkg",
+      "size": 1065554,
+      "sha256": "bc5b0c459d938ad18a82abce987000fa42cff77e194c2a1e01f81f4ff20b9c9e",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Testing.Extensions.TrxReport.Abstractions",
+      "version": "1.9.1",
+      "archive": "microsoft.testing.extensions.trxreport.abstractions/1.9.1/microsoft.testing.extensions.trxreport.abstractions.1.9.1.nupkg",
+      "size": 142649,
+      "sha256": "e2721103b80186371866a00f2b4e843363b396106b0b35569accc2c84a7412ca",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Testing.Platform",
+      "version": "1.9.1",
+      "archive": "microsoft.testing.platform/1.9.1/microsoft.testing.platform.1.9.1.nupkg",
+      "size": 4416727,
+      "sha256": "dcc7a695780bf2c0ee4f06f30cf0aba1845bc4769fa36478ac4b87579f579b76",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Testing.Platform.MSBuild",
+      "version": "1.9.1",
+      "archive": "microsoft.testing.platform.msbuild/1.9.1/microsoft.testing.platform.msbuild.1.9.1.nupkg",
+      "size": 2000711,
+      "sha256": "e656707346c3b661decb574f279713ec0e46d84e4ca2593a1285479beeefc567",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.TestPlatform.ObjectModel",
+      "version": "17.13.0",
+      "archive": "microsoft.testplatform.objectmodel/17.13.0/microsoft.testplatform.objectmodel.17.13.0.nupkg",
+      "size": 1647156,
+      "sha256": "f9d9afd2bf7b671480731e8f7ce58169a4dccbd9b4d2d20678e3e3b554276555",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-tools/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.Composition",
+      "version": "16.1.8",
+      "archive": "microsoft.visualstudio.composition/16.1.8/microsoft.visualstudio.composition.16.1.8.nupkg",
+      "size": 2130183,
+      "sha256": "c854f8b77524df547910f740c71b1302646e8afe7c32562860be094f5cb09474",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.Composition.NetFxAttributes",
+      "version": "16.1.8",
+      "archive": "microsoft.visualstudio.composition.netfxattributes/16.1.8/microsoft.visualstudio.composition.netfxattributes.16.1.8.nupkg",
+      "size": 72086,
+      "sha256": "1457a6206fa6f115943e8e56fa40873e1e589f87c64beb698c68904dc4f4b001",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.RemoteControl",
+      "version": "16.3.52",
+      "archive": "microsoft.visualstudio.remotecontrol/16.3.52/microsoft.visualstudio.remotecontrol.16.3.52.nupkg",
+      "size": 108099,
+      "sha256": "27f7a021cf68bc38b5314ae7c8a9e969d10242a001d56514cab6f120dbf8cd11",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://www.visualstudio.com/en-us/support/legal/mt736442"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.SDK.EmbedInteropTypes",
+      "version": "15.0.15",
+      "archive": "microsoft.visualstudio.sdk.embedinteroptypes/15.0.15/microsoft.visualstudio.sdk.embedinteroptypes.15.0.15.nupkg",
+      "size": 12683,
+      "sha256": "ed561e38d79d64c0e31d088ef60974f563c8e2235dc7d43ce356b1ffa91e1932",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkID=614949"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.SDK.EmbedInteropTypes",
+      "version": "15.0.36",
+      "archive": "microsoft.visualstudio.sdk.embedinteroptypes/15.0.36/microsoft.visualstudio.sdk.embedinteroptypes.15.0.36.nupkg",
+      "size": 22280,
+      "sha256": "2075176d75b5ce5a5a23b040ae11a26e44417744a09e239f20543bd8fe3a052f",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkID=614949"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.SolutionPersistence",
+      "version": "1.0.52",
+      "archive": "microsoft.visualstudio.solutionpersistence/1.0.52/microsoft.visualstudio.solutionpersistence.1.0.52.nupkg",
+      "size": 257778,
+      "sha256": "29918fb4e5dee87bfc46b91cb20a0b29347268249c2294046b6361341de2397c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.Telemetry",
+      "version": "17.14.18",
+      "archive": "microsoft.visualstudio.telemetry/17.14.18/microsoft.visualstudio.telemetry.17.14.18.nupkg",
+      "size": 1142591,
+      "sha256": "594c5a72a0fed1e95022bb1e6f91046eddc72b06e22ae699ac639d885f47ed70",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://www.visualstudio.com/en-us/support/legal/mt736442"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.Utilities.Internal",
+      "version": "16.3.42",
+      "archive": "microsoft.visualstudio.utilities.internal/16.3.42/microsoft.visualstudio.utilities.internal.16.3.42.nupkg",
+      "size": 104948,
+      "sha256": "6a6ef6a7a2ac3a6aa4a3f2d3bc5d0a69c6c01e1168f189e8a2059d6620ce86fa",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://www.visualstudio.com/en-us/support/legal/mt736439"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.Utilities.Internal",
+      "version": "16.3.90",
+      "archive": "microsoft.visualstudio.utilities.internal/16.3.90/microsoft.visualstudio.utilities.internal.16.3.90.nupkg",
+      "size": 155431,
+      "sha256": "dce90e76e1a63267a7bfbdd889dcf3e9dbdb4484b28e8fa119162158e166578b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://www.visualstudio.com/en-us/support/legal/mt736439"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudio.Validation",
+      "version": "15.0.82",
+      "archive": "microsoft.visualstudio.validation/15.0.82/microsoft.visualstudio.validation.15.0.82.nupkg",
+      "size": 487752,
+      "sha256": "ec915a03f1d91d58ec12d4e1fe21c344b8b945cb80dfd28abef0a4b88e094057",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://raw.githubusercontent.com/Microsoft/vs-validation/1fc5bdcf81/LICENSE"
+      }
+    },
+    {
+      "id": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "version": "1.0.0",
+      "archive": "microsoft.visualstudioeng.microbuild.core/1.0.0/microsoft.visualstudioeng.microbuild.core.1.0.0.nupkg",
+      "size": 23988,
+      "sha256": "d0f72e3d0ff1e935171cfe67c11998703891471be3b2a9bdde45766025f6f844",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://microsoft.mit-license.org/"
+      }
+    },
+    {
+      "id": "Microsoft.Win32.Registry",
+      "version": "5.0.0",
+      "archive": "microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg",
+      "size": 354731,
+      "sha256": "f64ca53c67ca65ce7cc85a8d29aefbb2da2672836731e1115e8cd62730dc5080",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Win32.SystemEvents",
+      "version": "4.7.0",
+      "archive": "microsoft.win32.systemevents/4.7.0/microsoft.win32.systemevents.4.7.0.nupkg",
+      "size": 148460,
+      "sha256": "187c670f53e56f7d862565564afd18e752a0b656fe71d2a03985416194a0545e",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Windows.CsWin32",
+      "version": "0.3.287",
+      "archive": "microsoft.windows.cswin32/0.3.287/microsoft.windows.cswin32.0.3.287.nupkg",
+      "size": 8085156,
+      "sha256": "dda0ca1cf2449a1cccc46cd8af8701e9a51aa71b6fdfda7947d48b3607383981",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Microsoft.Windows.SDK.Win32Docs",
+      "version": "0.1.42-alpha",
+      "archive": "microsoft.windows.sdk.win32docs/0.1.42-alpha/microsoft.windows.sdk.win32docs.0.1.42-alpha.nupkg",
+      "size": 19486529,
+      "sha256": "e83bf398dceb1957d698d24daa8a23f986beedb0109727a0ee99b229a525230b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://aka.ms/WinSDKLicenseURL"
+      }
+    },
+    {
+      "id": "Microsoft.Windows.SDK.Win32Metadata",
+      "version": "63.0.31-preview",
+      "archive": "microsoft.windows.sdk.win32metadata/63.0.31-preview/microsoft.windows.sdk.win32metadata.63.0.31-preview.nupkg",
+      "size": 6344248,
+      "sha256": "30cbd0a32553d79214f7710a678eab84ffe1cb1df0578e76bee1677fc39377ad",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "file",
+        "value": "sdk_license.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Windows.SDK.Win32Metadata",
+      "version": "70.0.11-preview",
+      "archive": "microsoft.windows.sdk.win32metadata/70.0.11-preview/microsoft.windows.sdk.win32metadata.70.0.11-preview.nupkg",
+      "size": 6486362,
+      "sha256": "251713165cd5fac0df81428fb67d283a7db949d362be685b4bcfb41dc028ceef",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "file",
+        "value": "sdk_license.txt"
+      }
+    },
+    {
+      "id": "Microsoft.Windows.WDK.Win32Metadata",
+      "version": "0.13.25-experimental",
+      "archive": "microsoft.windows.wdk.win32metadata/0.13.25-experimental/microsoft.windows.wdk.win32metadata.0.13.25-experimental.nupkg",
+      "size": 405497,
+      "sha256": "79079a449d8f621052bcaf13039e411d1c1b77aec4a89cf04d96518d0a619617",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "file",
+        "value": "sdk_license.txt"
+      }
+    },
+    {
+      "id": "Microsoft.WixToolset.Sdk",
+      "version": "5.0.2-dotnet.3009129",
+      "archive": "microsoft.wixtoolset.sdk/5.0.2-dotnet.3009129/microsoft.wixtoolset.sdk.5.0.2-dotnet.3009129.nupkg",
+      "size": 20005948,
+      "sha256": "ab9c8bad5b41efb3d988f8fca7a73435959611eb5cb596bdc1e7f42090110b08",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MS-RL"
+      }
+    },
+    {
+      "id": "NETStandard.Library",
+      "version": "2.0.3",
+      "archive": "netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg",
+      "size": 3146139,
+      "sha256": "3eb87644f79bcffb3c0331dbdac3c7837265f2cdf58a7bfd93e431776f77c9ba",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/standard/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "Newtonsoft.Json",
+      "version": "13.0.3",
+      "archive": "newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg",
+      "size": 2441966,
+      "sha256": "872fc189e638ab1056555b03aaa38f68bcb54286e221aa646eb1129babf63c77",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "NuGet.Build.Tasks",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.build.tasks/7.9.0-rc.37/nuget.build.tasks.7.9.0-rc.37.nupkg",
+      "size": 184511,
+      "sha256": "ffab37432397c120f8e8dca1889ba734225db8af60f8028ca3233e7836283b97",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Build.Tasks.Console",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.build.tasks.console/7.9.0-rc.37/nuget.build.tasks.console.7.9.0-rc.37.nupkg",
+      "size": 107883,
+      "sha256": "e5b23fa9541ba3979ef79e241a104483f272a9e303632aff2ea73e554085e93a",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Build.Tasks.Pack",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.build.tasks.pack/7.9.0-rc.37/nuget.build.tasks.pack.7.9.0-rc.37.nupkg",
+      "size": 405494,
+      "sha256": "92f940c4a265a4a20d3ed6f8b14a0c3162ceceeacf5f51214cb1cbef7b2d4a79",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.CommandLine",
+      "version": "4.9.6",
+      "archive": "nuget.commandline/4.9.6/nuget.commandline.4.9.6.nupkg",
+      "size": 1815523,
+      "sha256": "33a1286a368f46b4dfba95e30b30d5e7e796cd4d7cb2f6b2550fce4bab6ece9a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://aka.ms/nugetlicense"
+      }
+    },
+    {
+      "id": "NuGet.Commands",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.commands/7.9.0-rc.37/nuget.commands.7.9.0-rc.37.nupkg",
+      "size": 712674,
+      "sha256": "7311c6bcc9abfbad2f0fe82c164f9abc82a2dfdc6dcd1d7b2e47598e829c1674",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Common",
+      "version": "6.3.4",
+      "archive": "nuget.common/6.3.4/nuget.common.6.3.4.nupkg",
+      "size": 190977,
+      "sha256": "183cc4cb1f7fc1d54e500ae2f78ba80e30a199f0e706123dd2705fce81daaedb",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Common",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.common/7.9.0-rc.37/nuget.common.7.9.0-rc.37.nupkg",
+      "size": 220054,
+      "sha256": "59d578a4f5ba7006e31d2bec527cdc1b472cd546d816f0cac2408e7c66fa76db",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Configuration",
+      "version": "6.3.4",
+      "archive": "nuget.configuration/6.3.4/nuget.configuration.6.3.4.nupkg",
+      "size": 216030,
+      "sha256": "a9720e34829c0885c952634942cecc20d435f2a204501c93b56e71b0e4686687",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Configuration",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.configuration/7.9.0-rc.37/nuget.configuration.7.9.0-rc.37.nupkg",
+      "size": 250360,
+      "sha256": "fad5e4b3f7343d9cf4bd240b17f88840c3305e7cbbc99ffb9aacab31630c14b5",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Credentials",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.credentials/7.9.0-rc.37/nuget.credentials.7.9.0-rc.37.nupkg",
+      "size": 116785,
+      "sha256": "5870f61fd24f05f1e3ecfc2aa01d61d87adbf9a0bda60e8c5dc82f1f64427ca8",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.DependencyResolver.Core",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.dependencyresolver.core/7.9.0-rc.37/nuget.dependencyresolver.core.7.9.0-rc.37.nupkg",
+      "size": 173247,
+      "sha256": "3b94924c9b61c69ed10b93fa8330b6cf6026056c3a5e777473076318e0d9afd9",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Frameworks",
+      "version": "6.3.4",
+      "archive": "nuget.frameworks/6.3.4/nuget.frameworks.6.3.4.nupkg",
+      "size": 173827,
+      "sha256": "ceaa20bacdc75d06128aa7e78551f68ddd956576beb93b266b0feec03f1d9606",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Frameworks",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.frameworks/7.9.0-rc.37/nuget.frameworks.7.9.0-rc.37.nupkg",
+      "size": 207786,
+      "sha256": "78d73fea45cac085172bf071d4f9fe768f72f25d99ebcef444de74b12104a8bd",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.LibraryModel",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.librarymodel/7.9.0-rc.37/nuget.librarymodel.7.9.0-rc.37.nupkg",
+      "size": 135684,
+      "sha256": "1f9df26f1e9964061eca5298dcc6fc657aafd1e0e5a77ff7c9d8319ed2835d66",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Packaging",
+      "version": "6.3.4",
+      "archive": "nuget.packaging/6.3.4/nuget.packaging.6.3.4.nupkg",
+      "size": 943325,
+      "sha256": "d4b28ce6f81f34a9fcbf62dcaa26a5c267329c0088491e7bab5de7ec8da541b5",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Packaging",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.packaging/7.9.0-rc.37/nuget.packaging.7.9.0-rc.37.nupkg",
+      "size": 750295,
+      "sha256": "ad58163c30c1bc1f0809c85a13e753a2513faf0146c37115b2d65dc0d86a7209",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.ProjectModel",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.projectmodel/7.9.0-rc.37/nuget.projectmodel.7.9.0-rc.37.nupkg",
+      "size": 318581,
+      "sha256": "e3c810df68412660db85fa7ea755869c831160e226ff36ba854e58230d47f44e",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Protocol",
+      "version": "6.3.4",
+      "archive": "nuget.protocol/6.3.4/nuget.protocol.6.3.4.nupkg",
+      "size": 1044612,
+      "sha256": "8f72f86c3cccfb4fd4e1d9bdabdd780cda4eccfa4e3d685aa257ce14aa2c7404",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Protocol",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.protocol/7.9.0-rc.37/nuget.protocol.7.9.0-rc.37.nupkg",
+      "size": 997382,
+      "sha256": "5f5a6ec8ccf65eacf5c5e4529cb36feb6cbbfd90b69f5cee208f97a4ea3761f2",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Resolver",
+      "version": "6.3.4",
+      "archive": "nuget.resolver/6.3.4/nuget.resolver.6.3.4.nupkg",
+      "size": 184880,
+      "sha256": "ad761781d24cb709dedec924e23320ab2665c21dd00935fd8481efbd769fc543",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Versioning",
+      "version": "6.3.4",
+      "archive": "nuget.versioning/6.3.4/nuget.versioning.6.3.4.nupkg",
+      "size": 126203,
+      "sha256": "e823185507867d7bbec677abdd3de6825fe241f5e2622c681e2ce6acd03a6ef4",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "NuGet.Versioning",
+      "version": "7.9.0-rc.37",
+      "archive": "nuget.versioning/7.9.0-rc.37/nuget.versioning.7.9.0-rc.37.nupkg",
+      "size": 149234,
+      "sha256": "0b53d801eaf12aff2c4831bcbfc0c73a25f2cfbbf32dfe4b6355f5e4e38015f5",
+      "source": "https://dnceng.pkgs.visualstudio.com/public/_packaging/dotnet10/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "Perfolizer",
+      "version": "0.2.1",
+      "archive": "perfolizer/0.2.1/perfolizer.0.2.1.nupkg",
+      "size": 51987,
+      "sha256": "9e596c84ab8753ed634817dc4f3f014c94c6af54de085bf18cce0e3f22c64a04",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "PolySharp",
+      "version": "1.15.0+02753db24d9685e54db06739eb63183d86eb5b62",
+      "archive": "polysharp/1.15.0/polysharp.1.15.0.nupkg",
+      "size": 81282,
+      "sha256": "9c7fd43995b85fddc55042da0ed78cbc4116a1f5f8be28b87b9f633aac7d2538",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "RuntimeContracts",
+      "version": "0.5.0",
+      "archive": "runtimecontracts/0.5.0/runtimecontracts.0.5.0.nupkg",
+      "size": 28605,
+      "sha256": "be36fb7b390cc38603341334dc577129b4f751ad9c70cd6f4cf81c8cfe8744b0",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "RuntimeContracts.Analyzer",
+      "version": "0.4.0",
+      "archive": "runtimecontracts.analyzer/0.4.0/runtimecontracts.analyzer.0.4.0.nupkg",
+      "size": 67555,
+      "sha256": "5ad5d3a82115581dac0939fc4b3780f9c3aa860b4de334a09f5cb999ad8964d4",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Shouldly",
+      "version": "4.3.0",
+      "archive": "shouldly/4.3.0/shouldly.4.3.0.nupkg",
+      "size": 650375,
+      "sha256": "ee9622d9a1aa3c81f3ca125e9575912d508bcc1c53890af40c24d8df6e6ae8ef",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "BSD-3-Clause"
+      }
+    },
+    {
+      "id": "SimpleInfoName",
+      "version": "3.1.0",
+      "archive": "simpleinfoname/3.1.0/simpleinfoname.3.1.0.nupkg",
+      "size": 603703,
+      "sha256": "c09bc2705971a53f0c92f2844c90ccaef5f2aaf68762b4de0ea884c6c014c047",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "sn",
+      "version": "1.0.0",
+      "archive": "sn/1.0.0/sn.1.0.0.nupkg",
+      "size": 231647,
+      "sha256": "1a878b70796940428bb8675dd5eec3d68a6b3419041ab44b19026fc31a732280",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-eng/nuget/v3/index.json",
+      "license": {
+        "url": ""
+      }
+    },
+    {
+      "id": "StyleCop.Analyzers",
+      "version": "1.2.0-beta.556",
+      "archive": "stylecop.analyzers/1.2.0-beta.556/stylecop.analyzers.1.2.0-beta.556.nupkg",
+      "size": 15876,
+      "sha256": "f7b61841caf9bd9c53be2dfaeb4f1e524035c1beb1965650ed47176e3ad821f5",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "StyleCop.Analyzers.Unstable",
+      "version": "1.2.0.556",
+      "archive": "stylecop.analyzers.unstable/1.2.0.556/stylecop.analyzers.unstable.1.2.0.556.nupkg",
+      "size": 474559,
+      "sha256": "695a29edaf6bf97d91b191138278019b7a903c42223c15a01f389c1924c4ca67",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Buffers",
+      "version": "4.5.1",
+      "archive": "system.buffers/4.5.1/system.buffers.4.5.1.nupkg",
+      "size": 93737,
+      "sha256": "c30b3dd2c7e2f4cee4b823d692fd42118309b42ab1f5007f923d329a5b0d6b12",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "System.Buffers",
+      "version": "4.6.0",
+      "archive": "system.buffers/4.6.0/system.buffers.4.6.0.nupkg",
+      "size": 67596,
+      "sha256": "736425805075e8895f066b3960bb1308543f41e2a84baa61d5af6675192afc97",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Buffers",
+      "version": "4.6.1",
+      "archive": "system.buffers/4.6.1/system.buffers.4.6.1.nupkg",
+      "size": 67724,
+      "sha256": "b00451e91d016fbec091ad1e361f3a7015e1d91d4047f7e48a74455b2a673d79",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.CodeDom",
+      "version": "10.0.8",
+      "archive": "system.codedom/10.0.8/system.codedom.10.0.8.nupkg",
+      "size": 512413,
+      "sha256": "05e3e50de2bad7b155bb382e7b11f9467043c9aa5a37fcd8e3b96957fde7cf2c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Collections",
+      "version": "4.0.11",
+      "archive": "system.collections/4.0.11/system.collections.4.0.11.nupkg",
+      "size": 810001,
+      "sha256": "a6ea05324c78679e42d573f1370de7a7c9f33468c7f86db88f8df24c8b0344bd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Collections.Concurrent",
+      "version": "4.0.12",
+      "archive": "system.collections.concurrent/4.0.12/system.collections.concurrent.4.0.12.nupkg",
+      "size": 502657,
+      "sha256": "cc810cec00784b213dbba1bcfa8fa008b2f09208bafb7ac74153dd9ff744c01f",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Collections.Immutable",
+      "version": "1.2.0",
+      "archive": "system.collections.immutable/1.2.0/system.collections.immutable.1.2.0.nupkg",
+      "size": 310324,
+      "sha256": "150de5fae95b2d23e143425c4020b80f84b38d39c7b11a9c3a3e7a630cbba4ca",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Collections.Immutable",
+      "version": "10.0.8",
+      "archive": "system.collections.immutable/10.0.8/system.collections.immutable.10.0.8.nupkg",
+      "size": 794780,
+      "sha256": "1d3b06b7bc1fe4ee7821752fcb751e22bcc99fe20246545bc14eb4779607df72",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Collections.Immutable",
+      "version": "9.0.11",
+      "archive": "system.collections.immutable/9.0.11/system.collections.immutable.9.0.11.nupkg",
+      "size": 651186,
+      "sha256": "492c4dbacea11dc472b3a69426d4ee0df382244a84457ee1db8441838c9a24d7",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.ComponentModel.Composition",
+      "version": "4.5.0",
+      "archive": "system.componentmodel.composition/4.5.0/system.componentmodel.composition.4.5.0.nupkg",
+      "size": 195799,
+      "sha256": "c71799b35cc892197665753c09a3ad0a4317d4ddbdd082bb6db1d8784283d1a4",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "System.Composition",
+      "version": "1.0.31",
+      "archive": "system.composition/1.0.31/system.composition.1.0.31.nupkg",
+      "size": 17007,
+      "sha256": "c1c4041ba30245ad52d37b3761bdc4ded7ec20166277df4ced60e171be3c4229",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Composition",
+      "version": "8.0.0",
+      "archive": "system.composition/8.0.0/system.composition.8.0.0.nupkg",
+      "size": 47465,
+      "sha256": "ac0d75f0c163eaca0a37ef81bc3df2f605c025fd2564902d18046ece71b9f978",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Composition.AttributedModel",
+      "version": "8.0.0",
+      "archive": "system.composition.attributedmodel/8.0.0/system.composition.attributedmodel.8.0.0.nupkg",
+      "size": 116337,
+      "sha256": "9f769788100522542271244b88db4b87ef944525314412e082c8c9f0e30d469a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Composition.Convention",
+      "version": "8.0.0",
+      "archive": "system.composition.convention/8.0.0/system.composition.convention.8.0.0.nupkg",
+      "size": 189393,
+      "sha256": "67d1ce0271f596dd6a737f0fdd8d2a09fe60c01c222d7403f7de2891ccb9dc81",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Composition.Hosting",
+      "version": "8.0.0",
+      "archive": "system.composition.hosting/8.0.0/system.composition.hosting.8.0.0.nupkg",
+      "size": 203349,
+      "sha256": "6b12890bbd682a23562b2eba4d517f737ca80bcd64d375c701669bde618d6ebd",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Composition.Runtime",
+      "version": "8.0.0",
+      "archive": "system.composition.runtime/8.0.0/system.composition.runtime.8.0.0.nupkg",
+      "size": 135019,
+      "sha256": "031c19dbdf86634137e4f6b6e79abc01c327254e764f1af9a41cbceade95d46a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Composition.TypedParts",
+      "version": "8.0.0",
+      "archive": "system.composition.typedparts/8.0.0/system.composition.typedparts.8.0.0.nupkg",
+      "size": 212884,
+      "sha256": "f9925ac13866898114349f9c07db892bebbfb0201565aac67794a16684a27c6a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Configuration.ConfigurationManager",
+      "version": "10.0.8",
+      "archive": "system.configuration.configurationmanager/10.0.8/system.configuration.configurationmanager.10.0.8.nupkg",
+      "size": 986495,
+      "sha256": "e8517f3863d17b0a9cde519e84a6cabebfe1ca488286d5dc80ebc902dd2183a9",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Configuration.ConfigurationManager",
+      "version": "4.7.0",
+      "archive": "system.configuration.configurationmanager/4.7.0/system.configuration.configurationmanager.4.7.0.nupkg",
+      "size": 431122,
+      "sha256": "ad88e9fd499a808e1950b535a1c89afc0897c4b34bf2e84c57c2c11784055b5d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Diagnostics.DiagnosticSource",
+      "version": "10.0.8",
+      "archive": "system.diagnostics.diagnosticsource/10.0.8/system.diagnostics.diagnosticsource.10.0.8.nupkg",
+      "size": 601357,
+      "sha256": "594ba45f60c4058c4388955c1a8b0331fab5eac6abadb0c6b73abba79582ec41",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Diagnostics.DiagnosticSource",
+      "version": "9.0.11",
+      "archive": "system.diagnostics.diagnosticsource/9.0.11/system.diagnostics.diagnosticsource.9.0.11.nupkg",
+      "size": 453405,
+      "sha256": "70ac40e2d56ec7034eacdea703e189c2723d50d6801969bc90d846f6a93c810b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Diagnostics.EventLog",
+      "version": "10.0.8",
+      "archive": "system.diagnostics.eventlog/10.0.8/system.diagnostics.eventlog.10.0.8.nupkg",
+      "size": 546446,
+      "sha256": "6ce4aa2b31da66c273fa00db5856da27363c3ea2cacb010407195e149814cedc",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Drawing.Common",
+      "version": "4.7.2",
+      "archive": "system.drawing.common/4.7.2/system.drawing.common.4.7.2.nupkg",
+      "size": 1218622,
+      "sha256": "f9c4bf17c19815fb52721b697bd7ea94dc7d45d5485fd571eab9e87dd767e2d0",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Formats.Asn1",
+      "version": "10.0.8",
+      "archive": "system.formats.asn1/10.0.8/system.formats.asn1.10.0.8.nupkg",
+      "size": 365006,
+      "sha256": "58f01397ea73dffa9884eb69e8640d956959a64c14801a4460f73db5a5355588",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Formats.Nrbf",
+      "version": "10.0.8",
+      "archive": "system.formats.nrbf/10.0.8/system.formats.nrbf.10.0.8.nupkg",
+      "size": 260103,
+      "sha256": "31de83419cb2bc570ea30de3e39fcfd5ada84bec83540ee5a0ef3a6918f6c11b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Formats.Nrbf",
+      "version": "9.0.11",
+      "archive": "system.formats.nrbf/9.0.11/system.formats.nrbf.9.0.11.nupkg",
+      "size": 218862,
+      "sha256": "2040ffdc57aa128b2fd6ed1a9e48f1dea1b3cfc0050155c38c9fdd62a15dadb5",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.IO.Hashing",
+      "version": "9.0.2",
+      "archive": "system.io.hashing/9.0.2/system.io.hashing.9.0.2.nupkg",
+      "size": 171441,
+      "sha256": "088d73deb0830365e7604ee10351e1ebeacf91d21101cb30097bbf3db69abdc9",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.IO.Pipelines",
+      "version": "10.0.8",
+      "archive": "system.io.pipelines/10.0.8/system.io.pipelines.10.0.8.nupkg",
+      "size": 267202,
+      "sha256": "ffb2ea06886cc3f67aff6b4350aa0b8d0c91f2611bbe4e2f536b7cdc4701d9a8",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.IO.Pipelines",
+      "version": "8.0.0",
+      "archive": "system.io.pipelines/8.0.0/system.io.pipelines.8.0.0.nupkg",
+      "size": 267394,
+      "sha256": "2dda41d6ce2f433b0e3836b188ab2d2e4b39ed7f434c3e43e9c3f1f03135c301",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.IO.Pipelines",
+      "version": "9.0.11",
+      "archive": "system.io.pipelines/9.0.11/system.io.pipelines.9.0.11.nupkg",
+      "size": 223685,
+      "sha256": "a203629a5e7b8c003c92d98e4d17d553963cd4a1ca3d956808d2ad078ec1ec53",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Management",
+      "version": "5.0.0",
+      "archive": "system.management/5.0.0/system.management.5.0.0.nupkg",
+      "size": 265788,
+      "sha256": "ba9c76941461213b8ecfdacab61fa904d1afc5a2cd53764e49a4b40feed81e26",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Management",
+      "version": "6.0.1",
+      "archive": "system.management/6.0.1/system.management.6.0.1.nupkg",
+      "size": 466173,
+      "sha256": "83b6e3c10bfa69fd245a262da5713caa0af560c743e917fded36e12b94f1406d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Management",
+      "version": "9.0.1",
+      "archive": "system.management/9.0.1/system.management.9.0.1.nupkg",
+      "size": 565571,
+      "sha256": "7474811a2239396c4d405ffb66b7150d1c9b63074338cc8850d0d21a1d06a73d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Memory",
+      "version": "4.5.5",
+      "archive": "system.memory/4.5.5/system.memory.4.5.5.nupkg",
+      "size": 208978,
+      "sha256": "10f43da352a29fb2b3188e4edd4dcf5100194c8b526e4f61fe2e2b5623775a22",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "System.Memory",
+      "version": "4.6.0",
+      "archive": "system.memory/4.6.0/system.memory.4.6.0.nupkg",
+      "size": 192800,
+      "sha256": "3a10042b350ce9e11a1fdf4370668ccf6a452c6feafcde0a556aaa881614385a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Memory",
+      "version": "4.6.3",
+      "archive": "system.memory/4.6.3/system.memory.4.6.3.nupkg",
+      "size": 192935,
+      "sha256": "26078aeb758c9ae985e8bf851f973026061da6a5eb4837204d0c2d2204c72955",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Numerics.Vectors",
+      "version": "4.5.0",
+      "archive": "system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg",
+      "size": 382792,
+      "sha256": "a9d49320581fda1b4f4be6212c68c01a22cdf228026099c20a8eabefcf90f9cf",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "System.Numerics.Vectors",
+      "version": "4.6.0",
+      "archive": "system.numerics.vectors/4.6.0/system.numerics.vectors.4.6.0.nupkg",
+      "size": 136752,
+      "sha256": "7ca4b7b964361e647af6f3610c7a8f2d834eb77aa98e25903976431ef444d475",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Numerics.Vectors",
+      "version": "4.6.1",
+      "archive": "system.numerics.vectors/4.6.1/system.numerics.vectors.4.6.1.nupkg",
+      "size": 136872,
+      "sha256": "2bc500a86dcb02f2032d6d877f9e2d6e9e4a79080e57239b4198679d4031f2c7",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.ObjectModel",
+      "version": "4.0.12",
+      "archive": "system.objectmodel/4.0.12/system.objectmodel.4.0.12.nupkg",
+      "size": 321648,
+      "sha256": "32e759fca61cbd8b27d9c493dc4134e3d98b8a4acd92613b42852860a29bcbeb",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Reflection.Metadata",
+      "version": "10.0.8",
+      "archive": "system.reflection.metadata/10.0.8/system.reflection.metadata.10.0.8.nupkg",
+      "size": 1390062,
+      "sha256": "de93058f9bd59c2d39c87e8478090dea0e7c832c139e971791e9a3f432a92355",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Reflection.Metadata",
+      "version": "9.0.11",
+      "archive": "system.reflection.metadata/9.0.11/system.reflection.metadata.9.0.11.nupkg",
+      "size": 1114725,
+      "sha256": "a761319b3d838d0eb57ca7d5de966479be3de2255d6b45e0305a1bde0bcb5bec",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Reflection.MetadataLoadContext",
+      "version": "10.0.8",
+      "archive": "system.reflection.metadataloadcontext/10.0.8/system.reflection.metadataloadcontext.10.0.8.nupkg",
+      "size": 620372,
+      "sha256": "69d1a2c1ec8a7dd487aeee3bd3edb5445539223793da62dfbf0ec91e869f83a0",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Reflection.MetadataLoadContext",
+      "version": "9.0.11",
+      "archive": "system.reflection.metadataloadcontext/9.0.11/system.reflection.metadataloadcontext.9.0.11.nupkg",
+      "size": 502886,
+      "sha256": "e86e05bbf75ffaa61f7433139e4b82de6e4e3818fbb3b4e02918c73887e02e6e",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Reflection.TypeExtensions",
+      "version": "4.1.0",
+      "archive": "system.reflection.typeextensions/4.1.0/system.reflection.typeextensions.4.1.0.nupkg",
+      "size": 187836,
+      "sha256": "474619a3098575afb1cca351e242a0ee7785a04df429f670a7f2307d148a54ae",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Resources.Extensions",
+      "version": "10.0.8",
+      "archive": "system.resources.extensions/10.0.8/system.resources.extensions.10.0.8.nupkg",
+      "size": 288063,
+      "sha256": "e381943af18fbb0a65647190a219e78e3e7c555647bcbfe04d43ca1c253b9514",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Resources.Extensions",
+      "version": "9.0.11",
+      "archive": "system.resources.extensions/9.0.11/system.resources.extensions.9.0.11.nupkg",
+      "size": 237367,
+      "sha256": "7e3d3a7b1047b97e54418ce3c80cdfe20d654463c62a15255cd0b7fc4d5b6bb0",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Runtime",
+      "version": "4.1.0",
+      "archive": "system.runtime/4.1.0/system.runtime.4.1.0.nupkg",
+      "size": 7263653,
+      "sha256": "15588d18cff8a16b653fac34242d2f254fa4f5e7cb299fb2697ae711e69b0d0a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Runtime.CompilerServices.Unsafe",
+      "version": "6.0.0",
+      "archive": "system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg",
+      "size": 84343,
+      "sha256": "6c41b53e70e9eee298cff3a02ce5acdd15b04125589be0273f0566026720a762",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Runtime.CompilerServices.Unsafe",
+      "version": "6.1.0",
+      "archive": "system.runtime.compilerservices.unsafe/6.1.0/system.runtime.compilerservices.unsafe.6.1.0.nupkg",
+      "size": 62013,
+      "sha256": "372aaaa51707ba6cd2c69b2044382e0f9486c1d50d1c16e8d0e39dccb4c8cc25",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Runtime.CompilerServices.Unsafe",
+      "version": "6.1.2",
+      "archive": "system.runtime.compilerservices.unsafe/6.1.2/system.runtime.compilerservices.unsafe.6.1.2.nupkg",
+      "size": 75106,
+      "sha256": "5f6a7f53af3465f92beb6da873ebe0e496206c313313b98badee4355a6b25937",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Runtime.InteropServices",
+      "version": "4.1.0",
+      "archive": "system.runtime.interopservices/4.1.0/system.runtime.interopservices.4.1.0.nupkg",
+      "size": 2542509,
+      "sha256": "41c78062526f90f44973ffb98d1fb042934d2376aa1b24965923b7d1efc57d06",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Runtime.InteropServices.RuntimeInformation",
+      "version": "4.3.0",
+      "archive": "system.runtime.interopservices.runtimeinformation/4.3.0/system.runtime.interopservices.runtimeinformation.4.3.0.nupkg",
+      "size": 179546,
+      "sha256": "318a65ebf6720ba8639b359121efa20e895d38c5b599f6f05ec76e0275c82860",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Security.AccessControl",
+      "version": "5.0.0",
+      "archive": "system.security.accesscontrol/5.0.0/system.security.accesscontrol.5.0.0.nupkg",
+      "size": 621573,
+      "sha256": "b9e486f989fcd9ebf1c86067138f4de03fa780e0c35e0a2b9e506d4373a6c39e",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.AccessControl",
+      "version": "6.0.0",
+      "archive": "system.security.accesscontrol/6.0.0/system.security.accesscontrol.6.0.0.nupkg",
+      "size": 322676,
+      "sha256": "a8ec961016cdaf7123c92f9eb451bcff331bb8f8c0f8ef9d8bbd7b24ff42c728",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Cryptography.Cng",
+      "version": "5.0.0",
+      "archive": "system.security.cryptography.cng/5.0.0/system.security.cryptography.cng.5.0.0.nupkg",
+      "size": 957764,
+      "sha256": "9ce24fdef76641a600d3b4c8dfbdcebd95fab96b211138a9be2e4aa4bee8131a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Cryptography.Pkcs",
+      "version": "10.0.8",
+      "archive": "system.security.cryptography.pkcs/10.0.8/system.security.cryptography.pkcs.10.0.8.nupkg",
+      "size": 1142485,
+      "sha256": "5968401a9c2cc678c70348d908c460361ab6263064c7ec354ce25f221250a86a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Cryptography.ProtectedData",
+      "version": "10.0.8",
+      "archive": "system.security.cryptography.protecteddata/10.0.8/system.security.cryptography.protecteddata.10.0.8.nupkg",
+      "size": 153907,
+      "sha256": "1984504a44670d6cad30841ca0dac055b25d6b99f37dbb60d4726ec11655c47d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Cryptography.ProtectedData",
+      "version": "4.7.0",
+      "archive": "system.security.cryptography.protecteddata/4.7.0/system.security.cryptography.protecteddata.4.7.0.nupkg",
+      "size": 174838,
+      "sha256": "7597ece6adc88f55b578909f623c48da8fb8d5a4a2169680ba0a681026823ae8",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Cryptography.Xml",
+      "version": "10.0.8",
+      "archive": "system.security.cryptography.xml/10.0.8/system.security.cryptography.xml.10.0.8.nupkg",
+      "size": 473887,
+      "sha256": "562f140cf1ef1283edfce626184ae9f100ccde3f700bc4c5e62c00a0b3b4a24f",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Permissions",
+      "version": "4.5.0",
+      "archive": "system.security.permissions/4.5.0/system.security.permissions.4.5.0.nupkg",
+      "size": 245985,
+      "sha256": "15ae9d5fa1b2b1ed40fd10688a7f1c55a1d078f6df06fa7a8e35b15173e15ca4",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "System.Security.Permissions",
+      "version": "4.7.0",
+      "archive": "system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg",
+      "size": 540570,
+      "sha256": "04681730b522e6bc559a60a18c885c5d4c62b098ef94d4e85e5c9a21b531c38d",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Security.Principal.Windows",
+      "version": "5.0.0",
+      "archive": "system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg",
+      "size": 535022,
+      "sha256": "081390c25f6f78592b28ada853c24514488a221fe9f9a24efaaf5373643ff3d6",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Text.Encoding.CodePages",
+      "version": "10.0.8",
+      "archive": "system.text.encoding.codepages/10.0.8/system.text.encoding.codepages.10.0.8.nupkg",
+      "size": 4282793,
+      "sha256": "17cadd1bb8a3eb7bb09684574843d15b772c17e40e1eaf18e6eb62b4d4118323",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Text.Encoding.CodePages",
+      "version": "4.0.1",
+      "archive": "system.text.encoding.codepages/4.0.1/system.text.encoding.codepages.4.0.1.nupkg",
+      "size": 1615060,
+      "sha256": "c31b70590493bf9b6e14fefd2a150085a2fa6cbe1df254b34969029fd6a89703",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "http://go.microsoft.com/fwlink/?LinkId=329770"
+      }
+    },
+    {
+      "id": "System.Text.Encodings.Web",
+      "version": "10.0.8",
+      "archive": "system.text.encodings.web/10.0.8/system.text.encodings.web.10.0.8.nupkg",
+      "size": 410624,
+      "sha256": "1c683035acc525cf0f3e18c0de9e0fdd981cfd983c28e93ed2eaee58f1eea373",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Text.Encodings.Web",
+      "version": "6.0.1",
+      "archive": "system.text.encodings.web/6.0.1/system.text.encodings.web.6.0.1.nupkg",
+      "size": 271143,
+      "sha256": "977a0ac194ad8dec3f0a54ab0da54bc870c0131a0fe88c26eaea8949d23d609a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Text.Encodings.Web",
+      "version": "9.0.11",
+      "archive": "system.text.encodings.web/9.0.11/system.text.encodings.web.9.0.11.nupkg",
+      "size": 293532,
+      "sha256": "36e0f72f348bd6ed36502fad7a97821207eae6b3d7a46758242598d33c827959",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Text.Json",
+      "version": "10.0.8",
+      "archive": "system.text.json/10.0.8/system.text.json.10.0.8.nupkg",
+      "size": 2222790,
+      "sha256": "4535f3d313d06a5872c912d78aeeab79297e76c517139f06ce36263cff7e8585",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Text.Json",
+      "version": "9.0.11",
+      "archive": "system.text.json/9.0.11/system.text.json.9.0.11.nupkg",
+      "size": 1876987,
+      "sha256": "7ae7c6d7dd650a9481078ef599778e53f3aca75580519bc2abe0e807eabd7725",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Threading.Channels",
+      "version": "10.0.8",
+      "archive": "system.threading.channels/10.0.8/system.threading.channels.10.0.8.nupkg",
+      "size": 280221,
+      "sha256": "fa528810a12d6e781c36d392850aa705bcdf89963e9d167862d31ea7909b1d1e",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Threading.Channels",
+      "version": "9.0.11",
+      "archive": "system.threading.channels/9.0.11/system.threading.channels.9.0.11.nupkg",
+      "size": 223005,
+      "sha256": "d562c8626e5a7296b78db621ae322034f100b0ad0e4eaf37f032efb235cb9e07",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Threading.Tasks.Dataflow",
+      "version": "10.0.8",
+      "archive": "system.threading.tasks.dataflow/10.0.8/system.threading.tasks.dataflow.10.0.8.nupkg",
+      "size": 624278,
+      "sha256": "03c671bee6594c09a74645154ed49a28f39f9ed4c4b8a2cadb709eba8998b201",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Threading.Tasks.Extensions",
+      "version": "4.5.4",
+      "archive": "system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg",
+      "size": 89582,
+      "sha256": "a304a963cc0796c5179f9c6b7d8022bbce3b2fa7c029eb6196f631f7b462d678",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/dotnet/corefx/blob/master/LICENSE.TXT"
+      }
+    },
+    {
+      "id": "System.Threading.Tasks.Extensions",
+      "version": "4.6.3",
+      "archive": "system.threading.tasks.extensions/4.6.3/system.threading.tasks.extensions.4.6.3.nupkg",
+      "size": 74604,
+      "sha256": "1abc92c7517a021ead7e79d0b7f3c70be75bce0fac7cfe3b38e157d32245ff1a",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.ValueTuple",
+      "version": "4.6.2",
+      "archive": "system.valuetuple/4.6.2/system.valuetuple.4.6.2.nupkg",
+      "size": 86474,
+      "sha256": "76fd0e366a2b90655fd15d557b0b79504197748358cb578fe3193f6d97bdd9aa",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "System.Windows.Extensions",
+      "version": "4.7.0",
+      "archive": "system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg",
+      "size": 96529,
+      "sha256": "c96f86bd0ada9d179aa8fc39645bfe9928c1c90e72d6944b974e492047f7b585",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Verify",
+      "version": "28.12.0",
+      "archive": "verify/28.12.0/verify.28.12.0.nupkg",
+      "size": 1796436,
+      "sha256": "a345810c94c3380a91790fe09a5c5fde86483240f815e6daf53c771bd35d8f85",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "Verify.XunitV3",
+      "version": "28.12.0",
+      "archive": "verify.xunitv3/28.12.0/verify.xunitv3.28.12.0.nupkg",
+      "size": 189983,
+      "sha256": "f9223e7e7707a35f31695a8668114fa5148c835d0871df0f7506a1f5feeb70f8",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "MIT"
+      }
+    },
+    {
+      "id": "vswhere",
+      "version": "3.1.7",
+      "archive": "vswhere/3.1.7/vswhere.3.1.7.nupkg",
+      "size": 263597,
+      "sha256": "772d1d0ba5e1f95c83318dff2d1d08fe6eaca92b7fe11fa991f22bb9863d6860",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "url": "https://github.com/Microsoft/vswhere/tree/f39851e70fba0afee200da5b37fe5df45a6da88b/LICENSE.txt"
+      }
+    },
+    {
+      "id": "xunit.analyzers",
+      "version": "1.27.0",
+      "archive": "xunit.analyzers/1.27.0/xunit.analyzers.1.27.0.nupkg",
+      "size": 299941,
+      "sha256": "463c14d78a60248f91a76bcc631ff60609e2679acd0b3a30f38f7945ee61914e",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.runner.visualstudio",
+      "version": "3.1.3",
+      "archive": "xunit.runner.visualstudio/3.1.3/xunit.runner.visualstudio.3.1.3.nupkg",
+      "size": 1329766,
+      "sha256": "9ecdbea709a89f1eb03b94001c43edb7d71b13fc09c0156a43077308bf604bce",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3",
+      "version": "3.2.2",
+      "archive": "xunit.v3/3.2.2/xunit.v3.3.2.2.nupkg",
+      "size": 32174,
+      "sha256": "47a23f2098f28a6aa62f154d9e0e761a7e627ff09c7778a22e3754d5f2014543",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.assert",
+      "version": "3.2.2",
+      "archive": "xunit.v3.assert/3.2.2/xunit.v3.assert.3.2.2.nupkg",
+      "size": 289709,
+      "sha256": "c3775aac8f1cc2c3c4a0a2105b97b190dca01924e29a883b8b99c220fb787bc6",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.common",
+      "version": "1.1.0",
+      "archive": "xunit.v3.common/1.1.0/xunit.v3.common.1.1.0.nupkg",
+      "size": 150289,
+      "sha256": "5a22d34071df22e654118026ff178a389f385fa2bb25270b858e71cd71669069",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.common",
+      "version": "3.0.0",
+      "archive": "xunit.v3.common/3.0.0/xunit.v3.common.3.0.0.nupkg",
+      "size": 158846,
+      "sha256": "3c301e1638af7427c279f5bac417ea14c79778e7cdb5da12b98196a8bb220710",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.common",
+      "version": "3.2.2",
+      "archive": "xunit.v3.common/3.2.2/xunit.v3.common.3.2.2.nupkg",
+      "size": 162197,
+      "sha256": "90e5960fde1a502083a333be75bf05cb0de11b03471435c31ac48ad3bc5f1290",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.core.mtp-v1",
+      "version": "3.2.2",
+      "archive": "xunit.v3.core.mtp-v1/3.2.2/xunit.v3.core.mtp-v1.3.2.2.nupkg",
+      "size": 434820,
+      "sha256": "817f93844cbfdd923a1cb417fb0ed302008811f4a5fdc607da1c9a1895a86083",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.extensibility.core",
+      "version": "1.1.0",
+      "archive": "xunit.v3.extensibility.core/1.1.0/xunit.v3.extensibility.core.1.1.0.nupkg",
+      "size": 300180,
+      "sha256": "a2e4dde16922f6762370b6a9a9daf26d4b4cf4197fd874691a879f172155921b",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.extensibility.core",
+      "version": "3.0.0",
+      "archive": "xunit.v3.extensibility.core/3.0.0/xunit.v3.extensibility.core.3.0.0.nupkg",
+      "size": 311748,
+      "sha256": "73e4395abbf438d63ef977a01d7743eb63bb32d57080f52e724986d28c5623b8",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.extensibility.core",
+      "version": "3.2.2",
+      "archive": "xunit.v3.extensibility.core/3.2.2/xunit.v3.extensibility.core.3.2.2.nupkg",
+      "size": 321506,
+      "sha256": "2285bf7868701c97e2e0a0fdf89f97761a1d49ce3ac33d1ce8bfe86ae54eeb51",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.mtp-v1",
+      "version": "3.2.2",
+      "archive": "xunit.v3.mtp-v1/3.2.2/xunit.v3.mtp-v1.3.2.2.nupkg",
+      "size": 32307,
+      "sha256": "c4b4d226547639daa669cdc3453cfb9505ba6c0432cee89ffe69821c337bdc23",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.runner.common",
+      "version": "3.2.2",
+      "archive": "xunit.v3.runner.common/3.2.2/xunit.v3.runner.common.3.2.2.nupkg",
+      "size": 467018,
+      "sha256": "98d4ccf2e6de806d757a0639e5dff6ee8183b0f5304b19327338d16c9d40c1e8",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    },
+    {
+      "id": "xunit.v3.runner.inproc.console",
+      "version": "3.2.2",
+      "archive": "xunit.v3.runner.inproc.console/3.2.2/xunit.v3.runner.inproc.console.3.2.2.nupkg",
+      "size": 126729,
+      "sha256": "1bede7ecde0b53ee71fe4a42faaedb67e2b56c6a7868b7e3d3f204a41df3a89c",
+      "source": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+      "license": {
+        "type": "expression",
+        "value": "Apache-2.0"
+      }
+    }
+  ]
+}
