@@ -15,8 +15,14 @@ native host, debug symbols remain uncompressed because the supplied LLVM
 linker lacks zlib compression; `CompressSymbols=true` explicitly overrides this
 for a linker with compression support.
 
-Shared input manifests, runtime-pack preparation, SDK build, signing,
-packaging and native acceptance helpers live in the runtime fork's
+ASP.NET Core 10.0.12 is integrated for the SDK `10.0.401-ohos.2` distribution.
+See [ASP.NET integration](eng/openharmony/ASP.NET.md) and the
+[combined build/acceptance recipe](https://github.com/oheco/dotnet-aspnetcore/tree/ohos/10.0.12/eng/openharmony).
+Web, MVC/Razor, SignalR and managed gRPC run on CoreCLR; supported Minimal API
+applications also support NativeAOT. HTTP/3 requires a compatible MsQuic native
+dependency, which is not included.
+
+The original Runtime/MSBuild dependency build helpers live in the runtime fork's
 [`eng/openharmony`](https://github.com/oheco/dotnet-runtime/tree/ohos/10.0.12/eng/openharmony)
 directory. `build-sdk-target.sh` takes this SDK source directory and a prepared
 local feed containing the source-built HarmonyOS runtime and compiler packs.
@@ -47,11 +53,12 @@ the merged feed manifest. An archived source checkout must set
 The dependency passed a fresh offline build, bootstrap sample and relevant
 communication tests. The released SDK passed full native acceptance.
 
-GUI development, workloads, mobile packaging and ASP.NET Core are outside
-this delivery. SDK 10.0.401-ohos.1 and Runtime 10.0.12-ohos.1 are published.
+GUI development, workloads and mobile packaging remain outside this delivery.
+The initial SDK 10.0.401-ohos.1 and Runtime 10.0.12-ohos.1 release is preserved;
+the following validation record describes that earlier Runtime/SDK delivery.
 Native oo 0.5.0 verified installation through the official v3 index, normal and
 versioned commands, JIT/R2R/AOT builds and execution, and removal of both
-packages from a directory with spaces. See [the final validation record](eng/openharmony/VALIDATION.json).
+packages from a directory with spaces. See [the initial-release validation record](eng/openharmony/VALIDATION.json).
 
 The runtime/compiler binaries use runtime commit `033589b2981`; the generic
 NativeAOT integration package separately includes the Unix library-path
